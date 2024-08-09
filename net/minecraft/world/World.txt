@@ -2,90 +2,2191 @@
 以下是 World 类属性的详细文档说明：
 
 常量
-MAX_ENTITY_RADIUS (public static double): 用于 getEntitiesWithinAABB 函数，以扩展搜索区域的半径。建议根据实体的半径调整该值，以确保实体能够正确地被查找。
+MAX_ENTITY_RADIUS (public static double): 
+用于 getEntitiesWithinAABB 函数，以扩展搜索区域的半径。建议根据实体的半径调整该值，以确保实体能够正确地被查找。
+
 实例变量
-perWorldStorage (public final MapStorage): 每个世界的存储数据。
+perWorldStorage (public final MapStorage): 
+每个世界的存储数据。
 
-scheduledUpdatesAreImmediate (public boolean): 如果为 true，通过 scheduleBlockUpdate 调度的更新将立即执行。
+scheduledUpdatesAreImmediate (public boolean): 
+如果为 true，通过 scheduleBlockUpdate 调度的更新将立即执行。
 
-loadedEntityList (public List<net.minecraft.entity.Entity>): 当前加载的所有实体的列表。
+loadedEntityList (public List<net.minecraft.entity.Entity>): 
+当前加载的所有实体的列表。
 
-unloadedEntityList (protected List<net.minecraft.entity.Entity>): 已卸载的实体列表。
+unloadedEntityList (protected List<net.minecraft.entity.Entity>): 
+已卸载的实体列表。
 
-loadedTileEntityList (public List<net.minecraft.tileentity.TileEntity>): 当前加载的所有瓷砖实体（Tile Entity）的列表。
+loadedTileEntityList (public List<net.minecraft.tileentity.TileEntity>): 
+当前加载的所有瓷砖实体（Tile Entity）的列表。
 
-addedTileEntityList (private List): 已添加的瓷砖实体列表。
+addedTileEntityList (private List): 
+已添加的瓷砖实体列表。
 
-field_147483_b (private List): 用于存储某些内部数据的列表。
+field_147483_b (private List): 
+用于存储某些内部数据的列表。
 
-playerEntities (public List<net.minecraft.entity.player.EntityPlayer>): 当前世界中的所有玩家实体的列表。
+playerEntities (public List<net.minecraft.entity.player.EntityPlayer>): 
+当前世界中的所有玩家实体的列表。
 
-weatherEffects (public List<net.minecraft.entity.Entity>): 所有天气效果实体的列表。
+weatherEffects (public List<net.minecraft.entity.Entity>): 
+所有天气效果实体的列表。
 
-cloudColour (private long): 云层颜色的值。
+cloudColour (private long): 
+云层颜色的值。
 
-skylightSubtracted (public int): 从全日光中减去的光量值。
+skylightSubtracted (public int): 
+从全日光中减去的光量值。
 
-updateLCG (protected int): 用于块更新的线性同余生成器的当前种子。用于生成高度平面系列的值。
+updateLCG (protected int): 
+用于块更新的线性同余生成器的当前种子。用于生成高度平面系列的值。
 
-DIST_HASH_MAGIC (protected final int): 用于在区块内生成快速随机数的魔术数。
+DIST_HASH_MAGIC (protected final int): 
+用于在区块内生成快速随机数的魔术数。
 
-prevRainingStrength (public float): 前一帧的降雨强度。
+prevRainingStrength (public float): 
+前一帧的降雨强度。
 
-rainingStrength (public float): 当前的降雨强度。
+rainingStrength (public float): 
+当前的降雨强度。
 
-prevThunderingStrength (public float): 前一帧的雷电强度。
+prevThunderingStrength (public float): 
+前一帧的雷电强度。
 
-thunderingStrength (public float): 当前的雷电强度。
+thunderingStrength (public float): 
+当前的雷电强度。
 
-lastLightningBolt (public int): 当生成闪电时设置为 2。若大于 0，则在 updateWeather() 中递减。该值似乎未被使用。
+lastLightningBolt (public int): 
+当生成闪电时设置为 2。若大于 0，则在 updateWeather() 中递减。该值似乎未被使用。
 
-difficultySetting (public EnumDifficulty): 世界的难度设置，范围从 0 到 3。
+difficultySetting (public EnumDifficulty): 
+世界的难度设置，范围从 0 到 3。
 
-rand (public Random): 用于世界的随机数生成器。
+rand (public Random): 
+用于世界的随机数生成器。
 
-provider (public final WorldProvider): World 使用的 WorldProvider 实例。
+provider (public final WorldProvider): 
+World 使用的 WorldProvider 实例。
 
-worldAccesses (protected List<net.minecraft.world.IWorldAccess>): 处理世界访问的列表。
+worldAccesses (protected List<net.minecraft.world.IWorldAccess>): 
+处理世界访问的列表。
 
-chunkProvider (protected IChunkProvider): 处理区块操作和缓存的对象。
+chunkProvider (protected IChunkProvider): 
+处理区块操作和缓存的对象。
 
-saveHandler (protected final ISaveHandler): 保存处理程序。
+saveHandler (protected final ISaveHandler): 
+保存处理程序。
 
-worldInfo (protected final WorldInfo): 保存有关世界的信息（如磁盘上的大小、时间、出生点、种子等）。
+worldInfo (protected final WorldInfo): 
+保存有关世界的信息（如磁盘上的大小、时间、出生点、种子等）。
 
-findingSpawnPoint (public boolean): 当尝试查找出生点时设置为 true。
+findingSpawnPoint (public boolean): 
+当尝试查找出生点时设置为 true。
 
-mapStorage (public MapStorage): 世界的映射存储。
+mapStorage (public MapStorage): 
+世界的映射存储。
 
-villageCollectionObj (public VillageCollection): 村庄集合对象。
+villageCollectionObj (public VillageCollection): 
+村庄集合对象。
 
-villageSiegeObj (protected final VillageSiege): 村庄围攻对象。
+villageSiegeObj (protected final VillageSiege): 
+村庄围攻对象。
 
-theProfiler (public final Profiler): 用于性能分析的 Profiler 对象。
+theProfiler (public final Profiler): 
+用于性能分析的 Profiler 对象。
 
-theCalendar (private final Calendar): 当前的 Calendar 实例。
+theCalendar (private final Calendar): 
+当前的 Calendar 实例。
 
-worldScoreboard (protected Scoreboard): 世界的计分板。
+worldScoreboard (protected Scoreboard): 
+世界的计分板。
 
-isRemote (public boolean): 指示这是客户端世界 (true) 还是服务器世界 (false)。
+isRemote (public boolean): 
+指示这是客户端世界 (true) 还是服务器世界 (false)。
 
-activeChunkSet (protected Set<net.minecraft.world.ChunkCoordIntPair>): 需要更新的区块位置集合。
+activeChunkSet (protected Set<net.minecraft.world.ChunkCoordIntPair>): 
+需要更新的区块位置集合。
 
-ambientTickCountdown (private int): 到下一个随机环境音效播放的计数器。
+ambientTickCountdown (private int): 
+到下一个随机环境音效播放的计数器。
 
-spawnHostileMobs (protected boolean): 指示是否生成敌对生物的标志。
+spawnHostileMobs (protected boolean): 
+指示是否生成敌对生物的标志。
 
-spawnPeacefulMobs (protected boolean): 指示是否生成和平生物的标志。
+spawnPeacefulMobs (protected boolean): 
+指示是否生成和平生物的标志。
 
-collidingBoundingBoxes (private ArrayList): 碰撞的边界框的临时列表。
+collidingBoundingBoxes (private ArrayList): 
+碰撞的边界框的临时列表。
 
-field_147481_N (private boolean): 内部标志，具体用途不明。
+field_147481_N (private boolean): 
+内部标志，具体用途不明。
 
-lightUpdateBlockList (int[]): 用于更新光照等级的临时列表。包含光源的最大影响范围（32x32x32）的块和光值。
+lightUpdateBlockList (int[]): 
+用于更新光照等级的临时列表。包含光源的最大影响范围（32x32x32）的块和光值。
 
-restoringBlockSnapshots (public boolean): 如果为 true，则正在恢复块快照。
+restoringBlockSnapshots (public boolean): 
+如果为 true，则正在恢复块快照。
 
-captureBlockSnapshots (public boolean): 如果为 true，则捕获块快照。
+captureBlockSnapshots (public boolean): 
+如果为 true，则捕获块快照。
 
-capturedBlockSnapshots (public ArrayList<net.minecraftforge.common.util.BlockSnapshot>): 捕获的块快照列表。
+capturedBlockSnapshots (public ArrayList<net.minecraftforge.common.util.BlockSnapshot>): 
+捕获的块快照列表。
+
+/** 静态字段，用于存储世界数据 */
+private static MapStorage s_mapStorage
+
+/** 静态字段，保存处理器 */
+private static ISaveHandler s_savehandler
+
+构造函数
+1./**
+    * 客户端专用构造函数，初始化世界对象。
+    *
+    * @param p_i45368_1_ 关卡存储处理器
+    * @param p_i45368_2_ 世界名称
+    * @param p_i45368_3_ 世界提供者
+    * @param p_i45368_4_ 世界设置
+    * @param p_i45368_5_ 性能分析器
+    */
+@SideOnly(Side.CLIENT)
+public World(ISaveHandler p_i45368_1_, String p_i45368_2_, WorldProvider p_i45368_3_, WorldSettings p_i45368_4_, Profiler p_i45368_5_)
+
+2./**
+    * 服务端构造函数，初始化世界对象。
+    *
+    * @param p_i45369_1_ 关卡存储处理器
+    * @param p_i45369_2_ 世界名称
+    * @param p_i45369_3_ 世界设置
+    * @param p_i45369_4_ 世界提供者
+    * @param p_i45369_5_ 性能分析器
+    */
+public World(ISaveHandler p_i45369_1_, String p_i45369_2_, WorldSettings p_i45369_3_, WorldProvider p_i45369_4_, Profiler p_i45369_5_)
+
+方法
+1./**
+    * 获取给定 x/z 坐标的生物群系
+    */
+public BiomeGenBase getBiomeGenForCoords(final int x, final int z)
+
+2./**
+    * 获取给定 x/z 坐标的生物群系（内部实现）
+    *
+    * @param x 坐标 x
+    * @param z 坐标 z
+    * @return 指定坐标的生物群系
+    */
+public BiomeGenBase getBiomeGenForCoordsBody(final int x, final int z)
+
+3. /**
+    * 获取世界区块管理器
+    *
+    * @return 世界区块管理器
+    */
+public WorldChunkManager getWorldChunkManager()
+
+4. /**
+    * 完成世界设置的初始化。
+    * 该方法确保 WorldClient 在维度初始化之前设置 mapstorage 对象。
+    */
+// 进行分解，以便 WorldClient 有机会在维度初始化之前设置地图存储对象
+@SideOnly(Side.CLIENT)
+protected void finishSetup()
+
+5.//Provides a solution for different worlds getting different copies of the same data, potentially rewriting the data or causing race conditions/stale data
+//Buildcraft has suffered from the issue this fixes.  If you load the same data from two different worlds they can get two different copies of the same object, thus the last saved gets final say.
+/*  *
+    * 获取世界数据存储实例。如果保存处理器发生变化或存储实例为 null，则重新创建存储实例。
+    * 解决了不同世界之间可能存在的数据副本不同步的问题，防止数据被覆盖或导致竞争条件/过时的数据问题。
+    * Buildcraft 曾遇到过这个问题，如果从两个不同的世界加载相同的数据，它们可能会得到两个不同的对象副本，
+    * 这样最后保存的数据将决定最终结果。
+    *
+    * @param savehandler 当前的保存处理器
+    * @return 当前的 MapStorage 实例
+    */
+private MapStorage getMapStorage(ISaveHandler savehandler)
+
+6. /**
+    * 创建该世界的区块提供者。此方法在构造函数中调用。通过世界提供者获取提供者。
+    *
+    * @return 新创建的区块提供者
+    */
+protected abstract IChunkProvider createChunkProvider()
+
+7. /**
+    * 初始化世界设置，将服务器初始化标志设置为 true。
+    *
+    * @param p_72963_1_ 世界设置
+    */
+protected void initialize(WorldSettings p_72963_1_)
+
+8. /**
+    * 设置新的出生位置，通过在区块中随机 (x,z) 位置找到一个未覆盖的方块来设置。
+    */
+@SideOnly(Side.CLIENT)
+public void setSpawnLocation()
+
+9. /**
+    * 获取给定 (x, z) 坐标的顶部方块。
+    * 从 y = 63 开始向下查找，直到找到空气方块，返回该位置的方块。
+    *
+    * @param x 方块的 x 坐标
+    * @param z 方块的 z 坐标
+    * @return 顶部方块
+    */
+public Block getTopBlock(int x, int z)
+
+10./**
+    * 获取指定坐标处的方块。如果坐标超出范围或找不到对应的区块，则返回空气方块。
+    *
+    * @param p_147439_1_ 方块的 x 坐标
+    * @param p_147439_2_ 方块的 y 坐标
+    * @param p_147439_3_ 方块的 z 坐标
+    * @return 指定坐标处的方块
+    */
+public Block getBlock(int p_147439_1_, int p_147439_2_, int p_147439_3_)
+
+11. /**
+    * 判断指定坐标的方块是否为空气方块。
+    *
+    * @param x 方块的 x 坐标
+    * @param y 方块的 y 坐标
+    * @param z 方块的 z 坐标
+    * @return 如果指定坐标处的方块为空气方块，则返回 true，否则返回 false
+    */
+public boolean isAirBlock(int x, int y, int z)
+
+12./**
+    * 判断在指定的世界坐标 (x, y, z) 处是否存在方块。
+    *
+    * @param p_72899_1_ 方块的 x 坐标
+    * @param p_72899_2_ 方块的 y 坐标
+    * @param p_72899_3_ 方块的 z 坐标
+    * @return 如果指定坐标处存在方块，则返回 true，否则返回 false
+    */
+public boolean blockExists(int p_72899_1_, int p_72899_2_, int p_72899_3_)
+
+13./**
+    * 检查给定方块的距离 (p_72873_4_) 内的所有区块是否存在。
+    *
+    * @param p_72873_1_ 方块的 x 坐标
+    * @param p_72873_2_ 方块的 y 坐标
+    * @param p_72873_3_ 方块的 z 坐标
+    * @param p_72873_4_ 检查的范围
+    * @return 如果指定距离内的所有区块存在，则返回 true，否则返回 false
+    */
+public boolean doChunksNearChunkExist(int p_72873_1_, int p_72873_2_, int p_72873_3_, int p_72873_4_)
+
+14./**
+    * 检查给定的最小和最大坐标之间的所有区块是否存在。
+    *
+    * @param p_72904_1_ 最小 x 坐标
+    * @param p_72904_2_ 最小 y 坐标
+    * @param p_72904_3_ 最小 z 坐标
+    * @param p_72904_4_ 最大 x 坐标
+    * @param p_72904_5_ 最大 y 坐标
+    * @param p_72904_6_ 最大 z 坐标
+    * @return 如果指定范围内的所有区块存在，则返回 true，否则返回 false
+    */
+public boolean checkChunksExist(int p_72904_1_, int p_72904_2_, int p_72904_3_, int p_72904_4_, int p_72904_5_, int p_72904_6_)
+
+15./**
+    * 判断在给定的区块坐标 (x, y) 处是否存在区块。
+    *
+    * @param p_72916_1_ 区块的 x 坐标
+    * @param p_72916_2_ 区块的 y 坐标
+    * @return 如果指定坐标处的区块存在，则返回 true，否则返回 false
+    */
+protected boolean chunkExists(int p_72916_1_, int p_72916_2_)
+
+16./**
+    * 根据给定的方块坐标 (x, z) 返回对应的区块。
+    *
+    * @param p_72938_1_ 方块的 x 坐标
+    * @param p_72938_2_ 方块的 z 坐标
+    * @return 包含指定坐标的区块
+    */
+public Chunk getChunkFromBlockCoords(int p_72938_1_, int p_72938_2_)
+
+17./**
+    * 根据给定的区块坐标 (x, y) 返回对应的区块。
+    *
+    * @param p_72964_1_ 区块的 x 坐标
+    * @param p_72964_2_ 区块的 z 坐标
+    * @return 指定坐标的区块
+    */
+public Chunk getChunkFromChunkCoords(int p_72964_1_, int p_72964_2_)
+
+18./**
+    * 设置指定位置的方块 ID 和元数据。
+    * 标志 1 会导致方块更新。标志 2 会将更改发送给客户端（通常需要）。标志 4 防止方块重新渲染（如果这是客户端世界）。标志可以相加。
+    *
+    * @param x 方块的 x 坐标
+    * @param y 方块的 y 坐标
+    * @param z 方块的 z 坐标
+    * @param blockIn 新的方块
+    * @param metadataIn 新的元数据
+    * @param flags 标志，用于控制方块更新和客户端通知等
+    * @return 如果方块成功设置，则返回 true，否则返回 false
+    */
+public boolean setBlock(int x, int y, int z, Block blockIn, int metadataIn, int flags)
+
+19.// 从原始 setBlock(int x, int y, int z, Block blockIn, intmetadataIn, int flags) 方法中分离出来，以便直接发送客户端和物理更新
+  /**
+    * 标记并通知方块的变化。直接发送客户端和物理更新。
+    *
+    * @param x 方块的 x 坐标
+    * @param y 方块的 y 坐标
+    * @param z 方块的 z 坐标
+    * @param chunk 包含方块的区块
+    * @param oldBlock 原始方块
+    * @param newBlock 新方块
+    * @param flag 标志，用于控制方块更新和客户端通知等
+    */
+public void markAndNotifyBlock(int x, int y, int z, Chunk chunk, Block oldBlock, Block newBlock, int flag)
+
+20./**
+    * 返回指定坐标 (x, y, z) 处的方块元数据。
+    *
+    * @param p_72805_1_ 方块的 x 坐标
+    * @param p_72805_2_ 方块的 y 坐标
+    * @param p_72805_3_ 方块的 z 坐标
+    * @return 指定坐标处的方块元数据，如果坐标无效则返回 0
+    */
+public int getBlockMetadata(int p_72805_1_, int p_72805_2_, int p_72805_3_)
+
+21./**
+    * 设置方块的元数据，并根据标志通知方块发生变化。
+    * 标志 1 会将更改通知给客户端，标志 2 会在方块变化时进行更新（当方块变化时，通常需要标志 2），标志 4 防止方块重新渲染（仅客户端世界）。
+    *
+    * @param p_72921_1_ 方块的 x 坐标
+    * @param p_72921_2_ 方块的 y 坐标
+    * @param p_72921_3_ 方块的 z 坐标
+    * @param p_72921_4_ 新的元数据
+    * @param p_72921_5_ 标志，用于控制方块更新和客户端通知等
+    * @return 如果元数据成功设置，则返回 true，否则返回 false
+    */
+public boolean setBlockMetadataWithNotify(int p_72921_1_, int p_72921_2_, int p_72921_3_, int p_72921_4_, int p_72921_5_)
+
+22./**
+    * 将指定位置的方块设置为空气，并通知相关系统方块发生变化。
+    *
+    * @param x 方块的 x 坐标
+    * @param y 方块的 y 坐标
+    * @param z 方块的 z 坐标
+    * @return 如果方块成功设置为空气，则返回 true，否则返回 false
+    */
+public boolean setBlockToAir(int x, int y, int z)
+
+23./**
+    * 处理方块的删除操作，包括播放方块破坏效果，并根据需要掉落方块物品。
+    *
+    * @param x 方块的 x 坐标
+    * @param y 方块的 y 坐标
+    * @param z 方块的 z 坐标
+    * @param dropBlock 是否掉落方块物品
+    * @return 如果方块成功处理，则返回 true，否则返回 false
+    */
+public boolean func_147480_a(int x, int y, int z, boolean dropBlock)
+
+24./**
+    * 根据给定坐标设置方块，并使用默认的标志（3）进行更新和通知。
+    *
+    * @param x 方块的 x 坐标
+    * @param y 方块的 y 坐标
+    * @param z 方块的 z 坐标
+    * @param blockType 新的方块类型
+    * @return 如果方块成功设置，则返回 true，否则返回 false
+    */
+public boolean setBlock(int x, int y, int z, Block blockType)
+
+25./**
+    * 标记指定位置的方块以便更新。
+    *
+    * @param p_147471_1_ 方块的 x 坐标
+    * @param p_147471_2_ 方块的 y 坐标
+    * @param p_147471_3_ 方块的 z 坐标
+    */
+public void markBlockForUpdate(int p_147471_1_, int p_147471_2_, int p_147471_3_)
+
+26./**
+    * 通知其他系统方块变化。
+    *
+    * @param p_147444_1_ 方块的 x 坐标
+    * @param p_147444_2_ 方块的 y 坐标
+    * @param p_147444_3_ 方块的 z 坐标
+    * @param p_147444_4_ 变化的方块类型
+    */
+public void notifyBlockChange(int p_147444_1_, int p_147444_2_, int p_147444_3_, Block p_147444_4_)
+
+27./**
+    * 标记一条垂直的方块线为“脏”状态，以便后续更新。
+    * 这将更新光照并标记渲染范围以更新。
+    *
+    * @param p_72975_1_ 方块的 x 坐标
+    * @param p_72975_2_ 方块的 y 坐标
+    * @param p_72975_3_ 起始的 z 坐标
+    * @param p_72975_4_ 结束的 z 坐标
+    */
+public void markBlocksDirtyVertical(int p_72975_1_, int p_72975_2_, int p_72975_3_, int p_72975_4_)
+
+28./**
+    * 标记一个方块范围的渲染更新区域。
+    *
+    * @param p_147458_1_ 起始 x 坐标
+    * @param p_147458_2_ 起始 y 坐标
+    * @param p_147458_3_ 起始 z 坐标
+    * @param p_147458_4_ 结束 x 坐标
+    * @param p_147458_5_ 结束 y 坐标
+    * @param p_147458_6_ 结束 z 坐标
+    */
+public void markBlockRangeForRenderUpdate(int p_147458_1_, int p_147458_2_, int p_147458_3_, int p_147458_4_, int p_147458_5_, int p_147458_6_)
+
+29./**
+    * 通知相邻的方块发生变化。
+    *
+    * @param p_147459_1_ 方块的 x 坐标
+    * @param p_147459_2_ 方块的 y 坐标
+    * @param p_147459_3_ 方块的 z 坐标
+    * @param p_147459_4_ 变化的方块类型
+    */
+public void notifyBlocksOfNeighborChange(int p_147459_1_, int p_147459_2_, int p_147459_3_, Block p_147459_4_)
+
+30./**
+    * 通知相邻方块发生变化（考虑方向）。
+    *
+    * @param p_147441_1_ 方块的 x 坐标
+    * @param p_147441_2_ 方块的 y 坐标
+    * @param p_147441_3_ 方块的 z 坐标
+    * @param p_147441_4_ 变化的方块类型
+    * @param p_147441_5_ 方向标志，决定哪些方块需要通知
+    */
+public void notifyBlocksOfNeighborChange(int p_147441_1_, int p_147441_2_, int p_147441_3_, Block p_147441_4_, int p_147441_5_)
+
+31./**
+    * 通知指定坐标的方块其邻居方块发生变化。
+    *
+    * @param p_147460_1_ 方块的 x 坐标
+    * @param p_147460_2_ 方块的 y 坐标
+    * @param p_147460_3_ 方块的 z 坐标
+    * @param p_147460_4_ 变化的方块类型
+    */
+public void notifyBlockOfNeighborChange(int p_147460_1_, int p_147460_2_, int p_147460_3_, final Block p_147460_4_)
+
+32./**
+    * 返回给定方块是否在本次 tick 中会接收到计划的 tick。
+    *
+    * @param p_147477_1_ 方块的 x 坐标
+    * @param p_147477_2_ 方块的 y 坐标
+    * @param p_147477_3_ 方块的 z 坐标
+    * @param p_147477_4_ 方块对象
+    * @return 如果方块在本次 tick 中会接收到计划的 tick，则返回 true，否则返回 false
+    */
+public boolean isBlockTickScheduledThisTick(int p_147477_1_, int p_147477_2_, int p_147477_3_, Block p_147477_4_)
+
+33./**
+    * 检查指定方块是否能够看到天空。
+    *
+    * @param p_72937_1_ 方块的 x 坐标
+    * @param p_72937_2_ 方块的 y 坐标
+    * @param p_72937_3_ 方块的 z 坐标
+    * @return 如果方块能够看到天空，则返回 true，否则返回 false
+    */
+public boolean canBlockSeeTheSky(int p_72937_1_, int p_72937_2_, int p_72937_3_)
+
+34./**
+    * 获取指定坐标的方块的完整光照值，不检查是否为普通方块。
+    *
+    * @param p_72883_1_ 方块的 x 坐标
+    * @param p_72883_2_ 方块的 y 坐标
+    * @param p_72883_3_ 方块的 z 坐标
+    * @return 方块的完整光照值
+    */
+public int getFullBlockLightValue(int p_72883_1_, int p_72883_2_, int p_72883_3_)
+
+35./**
+    * 获取指定坐标的方块的光照值。
+    *
+    * @param p_72957_1_ 方块的 x 坐标
+    * @param p_72957_2_ 方块的 y 坐标
+    * @param p_72957_3_ 方块的 z 坐标
+    * @return 方块的光照值
+    */
+public int getBlockLightValue(int p_72957_1_, int p_72957_2_, int p_72957_3_)
+
+36./**
+    * 获取指定坐标的方块的光照值。这个实际函数获取光照值，并有一个布尔标志来指示是否为半方块，
+    * 以获取直接相邻方块（左、右、前、后、上）的最大光照值。
+    *
+    * @param p_72849_1_ 方块的 x 坐标
+    * @param p_72849_2_ 方块的 y 坐标
+    * @param p_72849_3_ 方块的 z 坐标
+    * @param p_72849_4_ 是否为半方块标志
+    * @return 方块的光照值
+    */
+public int getBlockLightValue_do(int p_72849_1_, int p_72849_2_, int p_72849_3_, boolean p_72849_4_)
+
+37./**
+    * 返回指定 x, z 坐标的高度值，即该坐标上的方块的 y 坐标。
+    *
+    * @param p_72976_1_ x 坐标
+    * @param p_72976_2_ z 坐标
+    * @return 指定坐标上的高度值
+    */
+public int getHeightValue(int p_72976_1_, int p_72976_2_)
+
+38. /**
+    * 获取给定区块的高度图最小值字段，如果区块未加载，则返回 0。坐标单位为块。
+    *
+    * @param p_82734_1_ 区块的 x 坐标
+    * @param p_82734_2_ 区块的 z 坐标
+    * @return 区块的高度图最小值，如果区块未加载，则返回 0
+    */
+public int getChunkHeightMapMinimum(int p_82734_1_, int p_82734_2_)
+
+39. /**
+    * 获取天空光照的亮度值。SkyBlock.Sky 亮度为纯白色（假设通过颜色计算），并依赖于白天时间。
+    * SkyBlock.Block 亮度为黄色，并且独立于时间。
+    *
+    * @param p_72925_1_ 光照类型（天空或方块）
+    * @param p_72925_2_ 坐标的 x 值
+    * @param p_72925_3_ 坐标的 y 值
+    * @param p_72925_4_ 坐标的 z 值
+    * @return 指定坐标的光照亮度值
+    */
+@SideOnly(Side.CLIENT)
+public int getSkyBlockTypeBrightness(EnumSkyBlock p_72925_1_, int p_72925_2_, int p_72925_3_, int p_72925_4_)
+
+40. /**
+    * 返回保存的光照值，不考虑时间。根据 enumSkyBlock 参数，查看天空光照图或方块光照图。
+    *
+    * @param p_72972_1_ 光照类型（天空或方块）
+    * @param p_72972_2_ 坐标的 x 值
+    * @param p_72972_3_ 坐标的 y 值
+    * @param p_72972_4_ 坐标的 z 值
+    * @return 指定坐标的保存光照值
+    */
+public int getSavedLightValue(EnumSkyBlock p_72972_1_, int p_72972_2_, int p_72972_3_, int p_72972_4_)
+ 
+41./**
+    * 根据传入的 enumSkyBlock（天空或方块）将光照值设置到天空光照图或方块光照图中。
+    *
+    * @param p_72915_1_ 光照类型（天空或方块）
+    * @param p_72915_2_ 坐标的 x 值
+    * @param p_72915_3_ 坐标的 y 值
+    * @param p_72915_4_ 坐标的 z 值
+    * @param p_72915_5_ 光照值
+    */
+public void setLightValue(EnumSkyBlock p_72915_1_, int p_72915_2_, int p_72915_3_, int p_72915_4_, int p_72915_5_)
+
+42. 未知 在Chunk类中有调用
+public void func_147479_m(int p_147479_1_, int p_147479_2_, int p_147479_3_)
+
+43./**
+    * 获取指定坐标的光照亮度。这个方法在 1.8 版本中用于渲染光照。
+    *
+    * @param p_72802_1_ 坐标的 x 值
+    * @param p_72802_2_ 坐标的 y 值
+    * @param p_72802_3_ 坐标的 z 值
+    * @param p_72802_4_ 方块光照值
+    * @return 组合的光照亮度值
+    */
+@SideOnly(Side.CLIENT)
+public int getLightBrightnessForSkyBlocks(int p_72802_1_, int p_72802_2_, int p_72802_3_, int p_72802_4_)
+
+44./**
+    * 返回方块的亮度值，根据查找表中的光照值（光照值在亮度表中不是线性的）。
+    *
+    * @param p_72801_1_ 坐标的 x 值
+    * @param p_72801_2_ 坐标的 y 值
+    * @param p_72801_3_ 坐标的 z 值
+    * @return 方块的亮度值
+    */
+public float getLightBrightness(int p_72801_1_, int p_72801_2_, int p_72801_3_)
+
+45./**
+    * 检查是否是白天，通过查看天空光照减去的光照值是否小于 4 来判断。
+    *
+    * @return 如果是白天则返回 true，否则返回 false
+    */
+public boolean isDaytime()
+
+46./**
+    * 在世界中的所有块上执行射线追踪，排除液体。
+    *
+    * @param p_72933_1_ 射线起点
+    * @param p_72933_2_ 射线终点
+    * @return 射线追踪的结果
+    */
+public MovingObjectPosition rayTraceBlocks(Vec3 p_72933_1_, Vec3 p_72933_2_)
+
+47./**
+    * 在世界中的所有块上执行射线追踪，并且可以选择是否包括液体。
+    *
+    * @param p_72901_1_ 射线起点
+    * @param p_72901_2_ 射线终点
+    * @param p_72901_3_ 是否包括液体
+    * @return 射线追踪的结果
+    */
+public MovingObjectPosition rayTraceBlocks(Vec3 p_72901_1_, Vec3 p_72901_2_, boolean p_72901_3_)
+
+48./**
+    * 执行射线追踪以检测与方块的碰撞。可以选择是否包括液体，并在碰撞时返回相应的结果。
+    *
+    * @param p_147447_1_ 射线的起点
+    * @param p_147447_2_ 射线的终点
+    * @param p_147447_3_ 是否检测碰撞
+    * @param p_147447_4_ 是否检测方块的边界框
+    * @param p_147447_5_ 是否在没有碰撞时返回最近的方块信息
+    * @return 射线与方块的碰撞结果，或者如果没有碰撞但要求返回最近方块的信息时返回该信息
+    */
+public MovingObjectPosition func_147447_a(Vec3 p_147447_1_, Vec3 p_147447_2_, boolean p_147447_3_, boolean p_147447_4_, boolean p_147447_5_)
+
+49./**
+    * 在实体位置播放声音。
+    *
+    * @param p_72956_1_ 实体
+    * @param p_72956_2_ 声音名称
+    * @param p_72956_3_ 音量（相对于 1.0）
+    * @param p_72956_4_ 频率（或音调，相对于 1.0）
+    */
+public void playSoundAtEntity(Entity p_72956_1_, String p_72956_2_, float p_72956_3_, float p_72956_4_)
+
+50./**
+    * 向所有接近的玩家播放声音，除了指定的玩家。
+    *
+    * @param p_85173_1_ 排除的玩家
+    * @param p_85173_2_ 声音的名称
+    * @param p_85173_3_ 音量
+    * @param p_85173_4_ 音调
+    */
+public void playSoundToNearExcept(EntityPlayer p_85173_1_, String p_85173_2_, float p_85173_3_, float p_85173_4_)
+
+51./**
+    * 播放一个声音效果。许多参数用于此函数。一个经典调用示例如下：
+    * (double)i + 0.5D, (double)j + 0.5D, (double)k + 0.5D, 'random.door_open', 1.0F, world.rand.nextFloat() * 0.1F + 0.9F，其中i, j, k是块的位置。
+    *
+    * @param x      X坐标
+    * @param y      Y坐标
+    * @param z      Z坐标
+    * @param soundName 声音的名称
+    * @param volume  音量
+    * @param pitch   音调
+    */
+public void playSoundEffect(double x, double y, double z, String soundName, float volume, float pitch)
+
+52./**
+    * 播放声音，所有参数传递给minecraftInstance.sndManager.playSound。
+    *
+    * @param x           X坐标
+    * @param y           Y坐标
+    * @param z           Z坐标
+    * @param soundName   声音的名称
+    * @param volume      音量
+    * @param pitch       音调
+    * @param distanceDelay 是否距离延迟
+    */
+public void playSound(double x, double y, double z, String soundName, float volume, float pitch, boolean distanceDelay)
+
+53./**
+    * 在指定坐标播放一张记录。参数：recordName, x, y, z。
+    *
+    * @param recordName  记录的名称
+    * @param x           X坐标
+    * @param y           Y坐标
+    * @param z           Z坐标
+    */
+public void playRecord(String recordName, int x, int y, int z)
+
+54./**
+    * 生成一个粒子。参数：particleName, x, y, z, velX, velY, velZ。
+    *
+    * @param particleName 粒子的名称
+    * @param x            X坐标
+    * @param y            Y坐标
+    * @param z            Z坐标
+    * @param velocityX    X轴速度
+    * @param velocityY    Y轴速度
+    * @param velocityZ    Z轴速度
+    */
+public void spawnParticle(String particleName, double x, double y, double z, double velocityX, double velocityY, double velocityZ)
+
+55./**
+    * 将一个闪电效果添加到世界中的闪电效果列表中。
+    *
+    * @param p_72942_1_ 闪电效果实体
+    * @return 返回是否成功添加
+    */
+public boolean addWeatherEffect(Entity p_72942_1_)
+
+56./**
+    * 调用此方法将所有实体放置到世界中。
+    *
+    * @param p_72838_1_ 要放置的实体
+    * @return 返回是否成功放置
+    */
+public boolean spawnEntityInWorld(Entity p_72838_1_)
+
+57./**
+    * 当实体被添加到世界时调用。
+    *
+    * @param p_72923_1_ 被添加的实体
+    */
+public void onEntityAdded(Entity p_72923_1_)
+
+58./**
+    * 当实体被从世界中移除时调用。
+    *
+    * @param p_72847_1_ 被移除的实体
+    */
+public void onEntityRemoved(Entity p_72847_1_)
+
+59./**
+    * 安排实体在下一个tick中移除。将实体标记为死亡以做准备。
+    *
+    * @param p_72900_1_ 要移除的实体
+    */
+public void removeEntity(Entity p_72900_1_)
+
+60./**
+    * 请不要使用此方法移除普通实体—使用正常的removeEntity方法。
+    *
+    * @param p_72973_1_ 要移除的玩家实体
+    */
+public void removePlayerEntityDangerously(Entity p_72973_1_)
+
+61./**
+    * 将一个IWorldAccess添加到worldAccesses列表中。
+    *
+    * @param p_72954_1_ 要添加的IWorldAccess
+    */
+public void addWorldAccess(IWorldAccess p_72954_1_)
+
+62./**
+    * 返回与aabb碰撞的边界框列表，排除传入实体的碰撞。参数：entity, aabb。
+    *
+    * @param p_72945_1_ 实体
+    * @param p_72945_2_ 包围盒
+    * @return 碰撞的边界框列表
+    */
+public List<net.minecraft.util.AxisAlignedBB> getCollidingBoundingBoxes(Entity p_72945_1_, AxisAlignedBB p_72945_2_)
+
+63./**
+    * 返回与指定的包围盒（AxisAlignedBB）碰撞的所有边界框。
+    *
+    * 此方法遍历指定包围盒所在区域的所有块，并检查这些块是否与指定的包围盒发生碰撞。它还检查所有在指定包围盒内的实体，以确定它们的碰撞框是否与指定的包围盒发生碰撞。
+    *
+    * @param p_147461_1_ 要检查碰撞的包围盒
+    * @return 与指定包围盒碰撞的所有边界框的列表
+    */
+public List<net.minecraft.util.AxisAlignedBB> func_147461_a(AxisAlignedBB p_147461_1_)
+
+64./**
+    * 计算当前时间的天空光减去量。
+    *
+    * 该方法使用提供者（provider）来计算当前时间的太阳亮度因子，然后基于此因子计算天空光的减少量。返回值表示从最大亮度中减去的部分。
+    *
+    * @param p_72967_1_ 当前的时间参数
+    * @return 当前时间的天空光减去量
+    */
+public int calculateSkylightSubtracted(float p_72967_1_)
+
+65./**
+    * 获取当前维度的太阳亮度因子。
+    *
+    * 该方法返回一个浮点值，表示当前太阳的亮度因子。0.0f 表示没有光照，1.0f 表示最大阳光。这个值通常用于光照检测，比如太阳能电池板。
+    *
+    * @param p_72967_1_ 当前的时间参数
+    * @return 当前的亮度因子
+    */
+public float getSunBrightnessFactor(float p_72967_1_)
+
+66./**
+    * 从世界访问对象列表中移除指定的世界访问对象。
+    *
+    * @param p_72848_1_ 要移除的世界访问对象
+    */
+public void removeWorldAccess(IWorldAccess p_72848_1_)
+
+67./**
+    * 获取太阳的亮度 - 检查时间、降雨和雷暴。
+    *
+    * 这个方法返回当前时间的太阳亮度，主要用于客户端显示和计算。
+    *
+    * @param p_72971_1_ 当前的时间参数
+    * @return 当前的太阳亮度
+    */
+@SideOnly(Side.CLIENT)
+public float getSunBrightness(float p_72971_1_)
+
+68./**
+    * 获取太阳的亮度，考虑了时间、降雨和雷暴对身体的影响。
+    *
+    * 这个方法返回当前时间的太阳亮度，基于时间、降雨和雷暴的影响，并且对结果进行了调整以适应视觉效果。
+    *
+    * @param p_72971_1_ 当前的时间参数
+    * @return 当前的太阳亮度，调整后的值
+    */
+@SideOnly(Side.CLIENT)
+public float getSunBrightnessBody(float p_72971_1_)
+
+69./**
+    * 计算天空盒的颜色。
+    *
+    * 该方法返回一个 `Vec3` 对象，表示天空盒的颜色。此方法通常用于客户端渲染效果。
+    *
+    * @param p_72833_1_ 实体，用于计算颜色的参考
+    * @param p_72833_2_ 当前的时间参数
+    * @return 计算得到的天空盒颜色
+    */
+@SideOnly(Side.CLIENT)
+public Vec3 getSkyColor(Entity p_72833_1_, float p_72833_2_)
+
+70./**
+    * 计算天空颜色的变化，考虑了天体角度、云彩、雨水、雷暴等因素。
+    *
+    * 该方法基于当前时间的天体角度计算天空颜色，并考虑了云彩、雨水、雷暴和闪电的影响。
+    *
+    * @param p_72833_1_ 当前的实体（用于获取位置）
+    * @param p_72833_2_ 当前的时间参数
+    * @return 计算得到的天空颜色向量
+    */
+@SideOnly(Side.CLIENT)
+public Vec3 getSkyColorBody(Entity p_72833_1_, float p_72833_2_)
+
+71./**
+    * 获取天体角度。
+    *
+    * 该方法调用提供者计算天体角度，并基于当前时间参数返回结果。
+    *
+    * @param p_72826_1_ 当前的时间参数
+    * @return 天体角度
+    */
+public float getCelestialAngle(float p_72826_1_)
+
+72./**
+    * 获取当前月相。
+    *
+    * 该方法用于获取当前的月相，并将其用于客户端的渲染效果。
+    *
+    * @return 当前的月相
+    */
+@SideOnly(Side.CLIENT)
+public int getMoonPhase()
+
+73./**
+    * 获取当前月亮相位因子。
+    *
+    * 该方法返回当前月亮的相位因子，值在 0.0 到 1.0 之间，以 0.25 为步进。
+    *
+    * @return 当前月亮相位因子
+    */
+public float getCurrentMoonPhaseFactor()
+
+74./**
+    * 获取当前月亮相位因子（不使用提供者）。
+    *
+    * 该方法从月亮相位因子数组中获取当前的月亮相位因子，并返回。
+    *
+    * @return 当前月亮相位因子
+    */
+public float getCurrentMoonPhaseFactorBody()
+
+75./**
+    * 返回天体角度转换为弧度的值。
+    *
+    * 该方法计算天体角度并将其转换为弧度值（2 * PI）。
+    *
+    * @param p_72929_1_ 当前的时间参数
+    * @return 天体角度的弧度值
+    */
+public float getCelestialAngleRadians(float p_72929_1_)
+
+76./**
+    * 获取云彩的颜色。
+    *
+    * 该方法基于当前时间计算云彩的颜色，用于客户端的渲染效果。
+    *
+    * @param p_72824_1_ 当前的时间参数
+    * @return 计算得到的云彩颜色向量
+    */
+@SideOnly(Side.CLIENT)
+public Vec3 getCloudColour(float p_72824_1_)
+
+77./**
+    * 计算云彩的颜色，考虑了天体角度、雨水等因素。
+    *
+    * 该方法基于当前时间和天体角度计算云彩颜色，并考虑雨水和雷暴的影响。
+    *
+    * @param p_72824_1_ 当前的时间参数
+    * @return 计算得到的云彩颜色向量
+    */
+@SideOnly(Side.CLIENT)
+public Vec3 drawCloudsBody(float p_72824_1_)
+
+78./**
+    * 获取雾的颜色。
+    *
+    * 该方法基于当前时间计算雾的颜色，用于客户端的渲染效果。
+    *
+    * @param p_72948_1_ 当前的时间参数
+    * @return 计算得到的雾颜色向量
+    */
+@SideOnly(Side.CLIENT)
+public Vec3 getFogColor(float p_72948_1_)
+
+79./**
+    * 获取降水的高度。
+    *
+    * 该方法计算并返回指定位置的降水高度。
+    *
+    * @param p_72874_1_ x 坐标
+    * @param p_72874_2_ z 坐标
+    * @return 指定位置的降水高度
+    */
+public int getPrecipitationHeight(int p_72874_1_, int p_72874_2_)
+
+80./**
+    * 获取指定位置的最高固体块的 y 坐标。
+    *
+    * 该方法找到指定 x 和 z 坐标的最高固体块，并返回其 y 坐标。
+    *
+    * @param p_72825_1_ x 坐标
+    * @param p_72825_2_ z 坐标
+    * @return 最高固体块的 y 坐标，如果没有找到返回 -1
+    */
+public int getTopSolidOrLiquidBlock(int p_72825_1_, int p_72825_2_)
+
+81./**
+    * 获取星星的亮度。
+    *
+    * 该方法用于客户端获取星星的亮度，用于渲染效果。
+    *
+    * @param p_72880_1_ 当前的时间参数
+    * @return 星星的亮度
+    */
+@SideOnly(Side.CLIENT)
+public float getStarBrightness(float p_72880_1_)
+
+82./**
+    * 计算星星的亮度。
+    *
+    * 该方法基于天体角度计算星星的亮度。
+    *
+    * @param par1 当前的时间参数
+    * @return 计算得到的星星亮度
+    */
+@SideOnly(Side.CLIENT)
+public float getStarBrightnessBody(float par1)
+
+83./**
+    * 计划一个块的更新，指定延迟（通常是更新频率）。
+    *
+    * 该方法用于计划块的更新操作，但在此实现中并未实际进行任何操作。
+    *
+    * @param p_147464_1_ x 坐标
+    * @param p_147464_2_ y 坐标
+    * @param p_147464_3_ z 坐标
+    * @param p_147464_4_ 要更新的块
+    * @param p_147464_5_ 延迟
+    */
+public void scheduleBlockUpdate(int p_147464_1_, int p_147464_2_, int p_147464_3_, Block p_147464_4_, int p_147464_5_) 
+
+84./**
+    * 计划一个块的更新，指定优先级和延迟。
+    *
+    * 该方法用于计划块的更新操作，并指定更新的优先级和延迟，但在此实现中并未实际进行任何操作。
+    *
+    * @param p_147454_1_ x 坐标
+    * @param p_147454_2_ y 坐标
+    * @param p_147454_3_ z 坐标
+    * @param p_147454_4_ 要更新的块
+    * @param p_147454_5_ 延迟
+    * @param p_147454_6_ 优先级
+    */
+public void scheduleBlockUpdateWithPriority(int p_147454_1_, int p_147454_2_, int p_147454_3_, Block p_147454_4_, int p_147454_5_, int p_147454_6_)
+
+85./**
+    * 计划一个块的更新，指定优先级和延迟（另一种实现方式）。
+    *
+    * 该方法用于计划块的更新操作，并指定更新的优先级和延迟，但在此实现中并未实际进行任何操作。
+    *
+    * @param p_147446_1_ x 坐标
+    * @param p_147446_2_ y 坐标
+    * @param p_147446_3_ z 坐标
+    * @param p_147446_4_ 要更新的块
+    * @param p_147446_5_ 延迟
+    * @param p_147446_6_ 优先级
+    */
+public void func_147446_b(int p_147446_1_, int p_147446_2_, int p_147446_3_, Block p_147446_4_, int p_147446_5_, int p_147446_6_)
+
+86./**
+    * 更新（并清理）实体和方块实体。
+    *
+    * 该方法负责更新世界中的所有实体和方块实体，包括：
+    * - 处理天气效果中的实体。
+    * - 更新和清理加载的实体和未加载的实体。
+    * - 更新和清理方块实体。
+    * - 处理待处理的方块实体。
+    *
+    * 具体步骤如下：
+    * 1. **更新天气效果中的实体**：
+    *    - 遍历 `weatherEffects` 列表中的所有实体，并调用其 `onUpdate` 方法进行更新。
+    *    - 处理可能发生的异常，记录错误报告，并根据配置决定是否移除错误实体。
+    *    - 移除已死亡的实体。
+    *
+    * 2. **移除未加载的实体**：
+    *    - 遍历 `unloadedEntityList` 列表中的所有实体。
+    *    - 从相应的区块中移除已卸载的实体。
+    *    - 调用 `onEntityRemoved` 方法进行清理。
+    *    - 清空 `unloadedEntityList`。
+    *
+    * 3. **更新加载的实体**：
+    *    - 遍历 `loadedEntityList` 列表中的所有实体。
+    *    - 处理实体的骑乘情况（如果实体的骑乘实体不存在或已经死亡，则解除骑乘关系）。
+    *    - 调用 `updateEntity` 方法更新实体。
+    *    - 处理可能发生的异常，记录错误报告，并根据配置决定是否移除错误实体。
+    *    - 移除已死亡的实体，并调用 `onEntityRemoved` 方法进行清理。
+    *
+    * 4. **更新方块实体**：
+    *    - 遍历 `loadedTileEntityList` 列表中的所有方块实体。
+    *    - 调用 `updateEntity` 方法更新方块实体。
+    *    - 处理可能发生的异常，记录错误报告，并根据配置决定是否移除错误方块实体。
+    *    - 移除无效的方块实体，并从对应的区块中移除。
+    *
+    * 5. **处理待处理的方块实体**：
+    *    - 遍历 `addedTileEntityList` 列表中的所有方块实体。
+    *    - 将有效的方块实体添加到 `loadedTileEntityList` 中。
+    *    - 对无效的方块实体进行处理，并从对应的区块中移除。
+    *    - 清空 `addedTileEntityList`。
+    *
+    * 此方法通过 `Profiler` 来监控各个阶段的性能，确保系统的性能不会受到影响。
+    */
+public void updateEntities()
+
+87./**
+    * 将给定集合中的所有可以更新的方块实体添加到合适的列表中。
+    *
+    * 根据 `field_147481_N` 标志，决定将方块实体添加到 `addedTileEntityList` 还是 `loadedTileEntityList`。
+    *
+    * @param p_147448_1_ 方块实体的集合。
+    */
+public void func_147448_a(Collection<net.minecraft.tileentity.TileEntity> p_147448_1_)
+
+88./**
+    * 如果实体所在的区块当前已加载，则更新该实体。
+    *
+    * @param p_72870_1_ 需要更新的实体。
+    */
+public void updateEntity(Entity p_72870_1_)
+
+89./**
+    * 根据是否强制更新和实体所在的区块是否已加载来更新实体。
+    *
+    * @param p_72866_1_ 需要更新的实体。
+    * @param p_72866_2_ 是否强制更新实体。
+    */
+public void updateEntityWithOptionalForce(Entity p_72866_1_, boolean p_72866_2_)
+
+90./**
+    * 返回指定的 AxisAlignedBB 范围内是否没有固体实体。
+    *
+    * @param p_72855_1_ 需要检查的 AxisAlignedBB 范围。
+    * @return 如果范围内没有固体实体，则返回 true；否则返回 false。
+    */
+public boolean checkNoEntityCollision(AxisAlignedBB p_72855_1_)
+
+91./**
+    * 返回指定的 AxisAlignedBB 范围内是否没有固体、活跃的实体，排除给定的实体。
+    *
+    * @param p_72917_1_ 需要检查的 AxisAlignedBB 范围。
+    * @param p_72917_2_ 要排除的实体。
+    * @return 如果范围内没有固体、活跃的实体，返回 true；否则返回 false。
+    */
+public boolean checkNoEntityCollision(AxisAlignedBB p_72917_1_, Entity p_72917_2_)
+
+92./**
+    * 返回指定 AxisAlignedBB 范围内是否存在方块。
+    *
+    * @param p_72829_1_ 需要检查的 AxisAlignedBB 范围。
+    * @return 如果范围内有方块，返回 true；否则返回 false。
+    */
+public boolean checkBlockCollision(AxisAlignedBB p_72829_1_)
+
+93./**
+    * 返回指定的 AxisAlignedBB 范围内是否存在液体方块。
+    *
+    * @param p_72953_1_ 需要检查的 AxisAlignedBB 范围。
+    * @return 如果范围内有液体方块，返回 true；否则返回 false。
+    */
+public boolean isAnyLiquid(AxisAlignedBB p_72953_1_)
+
+94./**
+    * 返回指定的 AxisAlignedBB 范围内是否存在火焰或熔岩方块，或者是否有方块燃烧。
+    *
+    * @param p_147470_1_ 需要检查的 AxisAlignedBB 范围。
+    * @return 如果范围内有火焰、熔岩方块，或者有方块燃烧，返回 true；否则返回 false。
+    */
+public boolean func_147470_e(AxisAlignedBB p_147470_1_)
+
+95./**
+    * 处理物体在水中的加速度。如果方法返回 true，说明物体在水中加速了。
+    *
+    * @param p_72918_1_ 需要处理的 AxisAlignedBB 范围。
+    * @param p_72918_2_ 物质类型（如水或熔岩）。
+    * @param p_72918_3_ 需要加速的实体。
+    * @return 如果实体在指定的范围内接触到指定的物质并且加速了，返回 true；否则返回 false。
+    */
+public boolean handleMaterialAcceleration(AxisAlignedBB p_72918_1_, Material p_72918_2_, Entity p_72918_3_)
+
+96./**
+    * 返回指定的 AxisAlignedBB 范围内是否包含指定的物质。
+    *
+    * @param p_72875_1_ 需要检查的 AxisAlignedBB 范围。
+    * @param p_72875_2_ 需要检查的物质类型。
+    * @return 如果范围内包含指定的物质，返回 true；否则返回 false。
+    */
+public boolean isMaterialInBB(AxisAlignedBB p_72875_1_, Material p_72875_2_)
+
+97./**
+    * 检查给定的 AxisAlignedBB 范围是否与指定的物质相交。通常用于游泳时。
+    *
+    * @param p_72830_1_ 需要检查的 AxisAlignedBB 范围。
+    * @param p_72830_2_ 需要检查的物质类型。
+    * @return 如果 AxisAlignedBB 范围与指定的物质相交，返回 true；否则返回 false。
+    */
+public boolean isAABBInMaterial(AxisAlignedBB p_72830_1_, Material p_72830_2_)
+
+98./**
+    * 创建一个爆炸事件。
+    *
+    * @param p_72876_1_ 触发爆炸的实体（可以为 null）。
+    * @param p_72876_2_ 爆炸中心的 X 坐标。
+    * @param p_72876_4_ 爆炸中心的 Y 坐标。
+    * @param p_72876_6_ 爆炸中心的 Z 坐标。
+    * @param p_72876_8_ 爆炸的强度（大小）。
+    * @param p_72876_9_ 是否引发火焰。
+    * @return 返回创建的 Explosion 对象。
+    */
+public Explosion createExplosion(Entity p_72876_1_, double p_72876_2_, double p_72876_4_, double p_72876_6_, float p_72876_8_, boolean p_72876_9_)
+
+99./**
+    * 创建一个新的爆炸事件，并执行相关的初始化操作。
+    *
+    * @param p_72885_1_ 触发爆炸的实体（可以为 null）。
+    * @param p_72885_2_ 爆炸中心的 X 坐标。
+    * @param p_72885_4_ 爆炸中心的 Y 坐标。
+    * @param p_72885_6_ 爆炸中心的 Z 坐标。
+    * @param p_72885_8_ 爆炸的强度（大小）。
+    * @param p_72885_9_ 是否引发火焰。
+    * @param p_72885_10_ 是否产生烟雾。
+    * @return 返回创建的 Explosion 对象。
+    */
+public Explosion newExplosion(Entity p_72885_1_, double p_72885_2_, double p_72885_4_, double p_72885_6_, float p_72885_8_, boolean p_72885_9_, boolean p_72885_10_)
+
+100./**
+    * 计算在指定的 AxisAlignedBB 范围内，沿指定的向量方向上的真实方块的百分比。
+    *
+    * @param p_72842_1_ 方向向量。
+    * @param p_72842_2_ 需要计算的 AxisAlignedBB 范围。
+    * @return 返回真实方块的百分比。
+    */
+public float getBlockDensity(Vec3 p_72842_1_, AxisAlignedBB p_72842_2_)
+
+101./**
+    * 如果指定坐标的指定方向的方块是火，则扑灭它。
+    *
+    * @param player 触发扑灭操作的玩家。
+    * @param x 方块的 X 坐标。
+    * @param y 方块的 Y 坐标。
+    * @param z 方块的 Z 坐标。
+    * @param side 方块的方向（0: 下, 1: 上, 2: -Z, 3: +Z, 4: -X, 5: +X）。
+    * @return 如果成功扑灭了火，返回 true；否则返回 false。
+    */
+public boolean extinguishFire(EntityPlayer player, int x, int y, int z, int side)
+
+102./**
+    * 获取当前加载的实体数量的调试信息字符串。
+    * 该信息可通过按 F3 键查看。
+    *
+    * @return 返回当前加载的实体数量的字符串表示，例如 "All: 123"。
+    */
+@SideOnly(Side.CLIENT)
+public String getDebugLoadedEntities()
+
+103./**
+    * 返回当前区块提供程序的名称。
+    * 通过调用 chunkprovider.makeString() 获取名称。
+    *
+    * @return 返回当前区块提供程序的名称。
+    */
+@SideOnly(Side.CLIENT)
+public String getProviderName()
+
+104./**
+    * 获取指定坐标处的 TileEntity 实例。
+    *
+    * @param x X 坐标。
+    * @param y Y 坐标。
+    * @param z Z 坐标。
+    * @return 返回指定坐标处的 TileEntity 实例，如果不存在则返回 null。
+    */
+public TileEntity getTileEntity(int x, int y, int z)
+
+105./**
+    * 设置指定坐标处的 TileEntity 实例。
+    * 如果 TileEntity 实例为 null 或无效，则不执行任何操作。
+    *
+    * @param x X 坐标。
+    * @param y Y 坐标。
+    * @param z Z 坐标。
+    * @param tileEntityIn 要设置的 TileEntity 实例。
+    */
+public void setTileEntity(int x, int y, int z, TileEntity tileEntityIn)
+
+106./**
+    * 移除指定坐标处的 TileEntity 实例。
+    *
+    * @param x X 坐标。
+    * @param y Y 坐标。
+    * @param z Z 坐标。
+    */
+public void removeTileEntity(int x, int y, int z)
+
+107./**
+    * 将指定的 TileEntity 实例添加到待处理列表中。
+    *
+    * @param tileEntityIn 要添加的 TileEntity 实例。
+    */
+public void func_147457_a(TileEntity tileEntityIn)
+
+108./**
+    * 检查指定坐标处的方块是否具有碰撞边界框，并且该边界框的平均边长是否大于或等于 1.0D。
+    *
+    * @param x X 坐标。
+    * @param y Y 坐标。
+    * @param z Z 坐标。
+    * @return 如果方块具有有效的碰撞边界框且边界框的平均边长大于或等于 1.0D，则返回 true；否则返回 false。
+    */
+public boolean func_147469_q(int x, int y, int z)
+
+109./**
+    * 返回指定坐标处的方块是否具有一个实心（可构建）的顶部表面。
+    *
+    * @param worldIn 世界实例。
+    * @param x X 坐标。
+    * @param y Y 坐标。
+    * @param z Z 坐标。
+    * @return 如果方块的顶部表面是实心的，则返回 true；否则返回 false。
+    */
+public static boolean doesBlockHaveSolidTopSurface(IBlockAccess worldIn, int x, int y, int z)
+
+110./**
+    * 检查指定坐标处的方块是否是实心的正常立方体。
+    * 如果区块不存在或未加载，则返回指定的默认布尔值。
+    *
+    * @param x X 坐标。
+    * @param y Y 坐标。
+    * @param z Z 坐标。
+    * @param def 区块不存在或未加载时返回的默认布尔值。
+    * @return 如果方块是实心的正常立方体，则返回 true；否则返回 false。
+    */
+public boolean isBlockNormalCubeDefault(int x, int y, int z, boolean def)
+
+111./**
+    * 在 World 类的构造函数中调用，以设置初始的天空光照值。
+    */
+public void calculateInitialSkylight()
+
+112./**
+    * 设置允许的生成类型（敌对生物与友好生物）。
+    *
+    * @param hostile 是否允许敌对生物生成。
+    * @param peaceful 是否允许友好生物生成。
+    */
+public void setAllowedSpawnTypes(boolean hostile, boolean peaceful)
+
+113./**
+    * 执行世界的单个刻（tick）。
+    */
+public void tick()
+
+114./**
+    * 从 World 构造函数调用，以设置 rainingStrength 和 thunderingStrength。
+    */
+private void calculateInitialWeather()
+
+115./**
+    * 根据世界信息设置初始天气状态（是否下雨、是否打雷）。
+    */
+public void calculateInitialWeatherBody()
+
+116./**
+    * 更新所有天气状态。
+    */
+protected void updateWeather()
+
+117./**
+    * 更新世界的天气状态，包括雷电和降雨的强度和持续时间。
+    */
+public void updateWeatherBody()
+
+118./**
+    * 更新当前激活的玩家区块，并检查光照。
+    */
+protected void setActivePlayerChunksAndCheckLight()
+
+119.protected abstract int func_152379_p();
+
+120./**
+    * 处理给定区块的环境音效和光照检查。
+    *
+    * @param p_147467_1_ 区块的 X 坐标偏移量
+    * @param p_147467_2_ 区块的 Z 坐标偏移量
+    * @param p_147467_3_ 需要处理的区块
+    */
+protected void func_147467_a(int p_147467_1_, int p_147467_2_, Chunk p_147467_3_)
+
+121./**
+    * 更新活动玩家的区块，并检查光照。
+    */
+protected void func_147456_g()
+
+122./**
+    * 检查指定坐标的方块是否为水，并且足够冷以至于能冻结。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @return 如果方块可以冻结，则返回 true，否则返回 false
+    */
+public boolean isBlockFreezable(int x, int y, int z)
+
+123./**
+    * 检查指定坐标的方块是否为水，并且有至少一个相邻的非水方块。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @return 如果方块可以自然冻结，则返回 true，否则返回 false
+    */
+public boolean isBlockFreezableNaturally(int x, int y, int z)
+
+124./**
+    * 检查指定坐标的方块是否为水，并且冷得足以冻结。如果 byWater 为 true，只有在相邻的方块中至少有一个是非水方块时才返回 true。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @param byWater 是否检查相邻方块是否为水
+    * @return 如果方块可以冻结，则返回 true，否则返回 false
+    */
+public boolean canBlockFreeze(int x, int y, int z, boolean byWater)
+
+125./**
+    * 检查指定坐标的方块是否为水，并且足够冷以至于能冻结。如果 byWater 为 true，只有在相邻的方块中至少有一个是非水方块时才返回 true。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @param byWater 是否检查相邻方块是否为水
+    * @return 如果方块可以冻结，则返回 true，否则返回 false
+    */
+public boolean canBlockFreezeBody(int x, int y, int z, boolean byWater)
+
+126./**
+    * 检查指定坐标的方块是否可以下雪。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @param checkLight 是否检查光照
+    * @return 如果方块可以下雪，则返回 true，否则返回 false
+    */
+public boolean func_147478_e(int x, int y, int z, boolean checkLight)
+
+127./**
+    * 检查指定坐标的方块是否可以下雪。考虑生物群落的温度和光照。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @param checkLight 是否检查光照
+    * @return 如果方块可以下雪，则返回 true，否则返回 false
+    */
+public boolean canSnowAtBody(int x, int y, int z, boolean checkLight)
+
+128.public boolean func_147451_t(int x, int y, int z)
+
+129./**
+    * 计算指定坐标的光照值。
+    *
+    * @param x 方块的 X 坐标
+    * @param y 方块的 Y 坐标
+    * @param z 方块的 Z 坐标
+    * @param p_98179_4_ 光照类型（天空光或方块光）
+    * @return 计算得到的光照值
+    */
+private int computeLightValue(int x, int y, int z, EnumSkyBlock p_98179_4_)
+
+130./**
+    * 根据指定的光照类型更新光照值。
+    *
+    * @param p_147463_1_ 光照类型（天空光或方块光）
+    * @param p_147463_2_ 方块的 X 坐标
+    * @param p_147463_3_ 方块的 Y 坐标
+    * @param p_147463_4_ 方块的 Z 坐标
+    * @return 如果光照值被更新，则返回 true，否则返回 false
+    */
+public boolean updateLightByType(EnumSkyBlock p_147463_1_, int p_147463_2_, int p_147463_3_, int p_147463_4_)
+
+131./**
+    * 处理待更新的方块列表，并执行更新操作。
+    *
+    * @param p_72955_1_ 是否进行完整的更新
+    * @return 总是返回 false
+    */
+public boolean tickUpdates(boolean p_72955_1_)
+
+132./**
+    * 获取指定区块的待处理方块更新列表。
+    *
+    * @param p_72920_1_ 目标区块
+    * @param p_72920_2_ 是否需要检查所有更新
+    * @return 当前实现返回 null
+    */
+public List<net.minecraft.world.NextTickListEntry> getPendingBlockUpdates(Chunk p_72920_1_, boolean p_72920_2_)
+
+133./**
+    * 获取指定包围盒（AABB）内的所有实体，排除指定的实体。
+    *
+    * @param p_72839_1_ 要排除的实体
+    * @param p_72839_2_ 要检查的包围盒
+    * @return 包含所有符合条件的实体的列表
+    */
+public List<net.minecraft.entity.Entity> getEntitiesWithinAABBExcludingEntity(Entity p_72839_1_, AxisAlignedBB p_72839_2_)
+
+134./**
+    * 获取指定包围盒（AABB）内的所有实体，排除指定的实体，并根据提供的选择器过滤实体。
+    *
+    * @param p_94576_1_ 要排除的实体
+    * @param p_94576_2_ 要检查的包围盒
+    * @param p_94576_3_ 实体选择器
+    * @return 包含所有符合条件的实体的列表
+    */
+public List<net.minecraft.entity.Entity> getEntitiesWithinAABBExcludingEntity(Entity p_94576_1_, AxisAlignedBB p_94576_2_, IEntitySelector p_94576_3_)
+
+135./**
+    * 返回与指定包围盒（AABB）相交的所有指定类型的实体。
+    *
+    * @param <T> 实体类型
+    * @param p_72872_1_ 实体类
+    * @param p_72872_2_ 包围盒
+    * @return 包含所有符合条件的实体的列表
+    */
+public <T> List<T> getEntitiesWithinAABB(Class<T> p_72872_1_, AxisAlignedBB p_72872_2_)
+
+136./**
+    * 根据提供的选择器返回与指定包围盒（AABB）相交的所有指定类型的实体。
+    *
+    * @param <T> 实体类型
+    * @param clazz 实体类
+    * @param bb 包围盒
+    * @param selector 实体选择器
+    * @return 包含所有符合条件的实体的列表
+    */
+public <T> List<T> selectEntitiesWithinAABB(Class<T> clazz, AxisAlignedBB bb, IEntitySelector selector)
+
+137./**
+    * 在指定包围盒（AABB）内找到与指定实体最接近的实体。
+    *
+    * @param p_72857_1_ 实体类
+    * @param p_72857_2_ 包围盒
+    * @param p_72857_3_ 要计算距离的实体
+    * @return 距离指定实体最近的实体
+    */
+public Entity findNearestEntityWithinAABB(Class<? extends net.minecraft.entity.Entity> p_72857_1_, AxisAlignedBB p_72857_2_, Entity p_72857_3_)
+
+138./**
+    * 返回具有指定 ID 的实体，如果该实体在此世界中不存在，则返回 null。
+    *
+    * @param p_73045_1_ 实体 ID
+    * @return 对应 ID 的实体或 null
+    */
+public abstract Entity getEntityByID(int p_73045_1_);
+
+139./**
+    * 获取当前已加载的实体列表。
+    *
+    * @return 当前已加载的实体列表
+    */
+@SideOnly(Side.CLIENT)
+public List<net.minecraft.entity.Entity> getLoadedEntityList()
+
+140./**
+    * 标记指定位置的区块为已修改。对 TileEntity 进行操作时，需要标记区块为修改状态，以避免游戏退出时区块回滚。
+    *
+    * @param p_147476_1_ 方块的 X 坐标
+    * @param p_147476_2_ 方块的 Y 坐标
+    * @param p_147476_3_ 方块的 Z 坐标
+    * @param p_147476_4_ 需要标记的 TileEntity
+    */
+public void markTileEntityChunkModified(int p_147476_1_, int p_147476_2_, int p_147476_3_, TileEntity p_147476_4_)
+
+141./**
+    * 计算世界中存在的指定类型实体的数量。
+    *
+    * @param p_72907_1_ 实体类
+    * @return 指定类型实体的数量
+    */
+public int countEntities(Class<? extends net.minecraft.entity.Entity> p_72907_1_)
+
+142./**
+    * 将一组实体添加到已加载实体列表，并加载它们的皮肤。
+    *
+    * @param p_72868_1_ 要添加的实体列表
+    */
+public void addLoadedEntities(List<net.minecraft.entity.Entity> p_72868_1_)
+
+143./**
+    * 将一组实体添加到待卸载实体列表中，下一次 World.updateEntities() 时会处理这些实体的卸载。
+    *
+    * @param p_72828_1_ 要卸载的实体列表
+    */
+public void unloadEntities(List<net.minecraft.entity.Entity> p_72828_1_)
+
+144./**
+    * 判断给定的实体是否可以放置在给定方块位置的指定面上。
+    *
+    * @param p_147472_1_ 要放置的方块
+    * @param p_147472_2_ 方块的 X 坐标
+    * @param p_147472_3_ 方块的 Y 坐标
+    * @param p_147472_4_ 方块的 Z 坐标
+    * @param p_147472_5_ 是否进行碰撞检测
+    * @param p_147472_6_ 方块的方向
+    * @param p_147472_7_ 要放置的实体
+    * @param p_147472_8_ 要放置的物品
+    * @return 如果实体可以放置，则返回 true；否则返回 false
+    */
+public boolean canPlaceEntityOnSide(Block p_147472_1_, int p_147472_2_, int p_147472_3_, int p_147472_4_, boolean p_147472_5_, int p_147472_6_, Entity p_147472_7_, ItemStack p_147472_8_)
+
+145./**
+    * 获取从一个实体到另一个实体的路径。
+    *
+    * @param p_72865_1_ 起始实体
+    * @param p_72865_2_ 目标实体
+    * @param p_72865_3_ 路径寻找的最大范围
+    * @param p_72865_4_ 是否允许穿越障碍
+    * @param p_72865_5_ 是否允许穿越水域
+    * @param p_72865_6_ 是否允许穿越空洞
+    * @param p_72865_7_ 是否允许穿越障碍
+    * @return 从起始实体到目标实体的路径实体
+    */
+public PathEntity getPathEntityToEntity(Entity p_72865_1_, Entity p_72865_2_, float p_72865_3_, boolean p_72865_4_, boolean p_72865_5_, boolean p_72865_6_, boolean p_72865_7_)
+
+146./**
+    * 获取从一个实体到指定坐标的路径。
+    *
+    * @param p_72844_1_ 起始实体
+    * @param p_72844_2_ 目标 X 坐标
+    * @param p_72844_3_ 目标 Y 坐标
+    * @param p_72844_4_ 目标 Z 坐标
+    * @param p_72844_5_ 路径寻找的最大范围
+    * @param p_72844_6_ 是否允许穿越障碍
+    * @param p_72844_7_ 是否允许穿越水域
+    * @param p_72844_8_ 是否允许穿越空洞
+    * @param p_72844_9_ 是否允许穿越障碍
+    * @return 从起始实体到目标坐标的路径实体
+    */
+public PathEntity getEntityPathToXYZ(Entity p_72844_1_, int p_72844_2_, int p_72844_3_, int p_72844_4_, float p_72844_5_, boolean p_72844_6_, boolean p_72844_7_, boolean p_72844_8_, boolean p_72844_9_)
+
+147./**
+    * 判断指定位置的方块是否在指定方向上提供红石信号。
+    *
+    * @param x          方块的 X 坐标
+    * @param y          方块的 Y 坐标
+    * @param z          方块的 Z 坐标
+    * @param directionIn 方块的方向
+    * @return 在指定方向上提供的红石信号强度
+    */
+public int isBlockProvidingPowerTo(int x, int y, int z, int directionIn)
+
+148./**
+    * 获取给定位置方块接收的最高红石信号强度。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 接收到的最高红石信号强度
+    */
+public int getBlockPowerInput(int x, int y, int z)
+
+149./**
+    * 返回指定方向相反方向上输出的间接信号强度是否大于 0。
+    *
+    * @param x          方块的 X 坐标
+    * @param y          方块的 Y 坐标
+    * @param z          方块的 Z 坐标
+    * @param directionIn 方块的方向
+    * @return 如果在相反方向上输出的间接信号强度大于 0，则返回 true，否则返回 false
+    */
+public boolean getIndirectPowerOutput(int x, int y, int z, int directionIn)
+
+150./**
+    * 获取从指定方向到达某方块的间接红石信号强度。
+    *
+    * @param x          方块的 X 坐标
+    * @param y          方块的 Y 坐标
+    * @param z          方块的 Z 坐标
+    * @param directionIn 方块的方向
+    * @return 从指定方向到达某方块的间接红石信号强度
+    */
+public int getIndirectPowerLevelTo(int x, int y, int z, int directionIn)
+
+151./**
+    * 检查某方块是否间接接收到来自邻近方块的红石信号。此方法用于像 TNT 或门这样的方块，以防止红石信号直接进入它们。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 如果方块或其相邻方块间接接收到红石信号，则返回 true；否则返回 false
+    */
+public boolean isBlockIndirectlyGettingPowered(int x, int y, int z)
+
+152./**
+    * 获取在指定位置周围所有方向上的最强间接红石信号强度。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 所有方向上的最强间接红石信号强度（最大为 15）
+    */
+public int getStrongestIndirectPower(int x, int y, int z)
+
+153./**
+    * 获取离指定实体最近的玩家，距离小于指定范围（如果距离小于 0，则忽略距离限制）。
+    *
+    * @param entityIn 要检查的实体
+    * @param distance 最大距离
+    * @return 离指定实体最近的玩家，或如果没有找到则返回 null
+    */
+public EntityPlayer getClosestPlayerToEntity(Entity entityIn, double distance)
+
+154./**
+    * 获取离指定点最近的玩家，距离小于指定范围（距离可以设置为小于 0 以不限制距离）。
+    *
+    * @param x        X 坐标
+    * @param y        Y 坐标
+    * @param z        Z 坐标
+    * @param distance 最大距离
+    * @return 离指定点最近的玩家，或如果没有找到则返回 null
+    */
+public EntityPlayer getClosestPlayer(double x, double y, double z, double distance)
+
+155./**
+    * 返回离指定实体最近的脆弱玩家（即不具备伤害免疫的玩家），在指定半径内。如果没有找到则返回 null。
+    *
+    * @param entityIn 要检查的实体
+    * @param distance 最大距离
+    * @return 离指定实体最近的脆弱玩家，或如果没有找到则返回 null
+    */
+public EntityPlayer getClosestVulnerablePlayerToEntity(Entity entityIn, double distance)
+
+156./**
+    * 返回离指定点最近的脆弱玩家（即不具备伤害免疫的玩家），在指定半径内。如果没有找到则返回 null。
+    *
+    * @param p_72846_1_ X 坐标
+    * @param p_72846_3_ Y 坐标
+    * @param p_72846_5_ Z 坐标
+    * @param p_72846_7_ 最大距离
+    * @return 离指定点最近的脆弱玩家，或如果没有找到则返回 null
+    */
+public EntityPlayer getClosestVulnerablePlayer(double p_72846_1_, double p_72846_3_, double p_72846_5_, double p_72846_7_)
+
+157./**
+    * 通过名称查找世界中的玩家。
+    *
+    * @param name 玩家名称
+    * @return 名称匹配的玩家，如果没有找到则返回 null
+    */
+public EntityPlayer getPlayerEntityByName(String name)
+
+158./**
+    * 通过 UUID 查找世界中的玩家。
+    *
+    * @param uuid 玩家 UUID
+    * @return UUID 匹配的玩家，如果没有找到则返回 null
+    */
+public EntityPlayer func_152378_a(UUID uuid)
+
+159./**
+    * 如果在多人游戏模式下，发送退出的数据包。
+    */
+@SideOnly(Side.CLIENT)
+public void sendQuittingDisconnectingPacket()
+
+160./**
+    * 检查会话锁文件是否被其他进程修改
+    *
+    * @throws MinecraftException 如果会话锁检查失败
+    */
+public void checkSessionLock() throws MinecraftException
+
+161./**
+    * 更新世界总时间。
+    *
+    * @param p_82738_1_ 增加的时间
+    */
+@SideOnly(Side.CLIENT)
+public void func_82738_a(long p_82738_1_)
+
+162./**
+    * 从 level.dat 文件中检索世界种子。
+    *
+    * @return 世界种子
+    */
+public long getSeed()
+
+163./**
+    * 获取世界的总时间。
+    *
+    * @return 世界总时间
+    */
+public long getTotalWorldTime()
+
+164./**
+    * 获取当前世界时间。
+    *
+    * @return 当前世界时间
+    */
+public long getWorldTime()
+
+165./**
+    * 设置世界时间。
+    *
+    * @param time 要设置的世界时间
+    */
+public void setWorldTime(long time)
+
+166./**
+    * 返回出生点的坐标。
+    *
+    * @return 出生点坐标
+    */
+public ChunkCoordinates getSpawnPoint()
+
+167./**
+    * 设置出生点位置。
+    *
+    * @param p_72950_1_ X 坐标
+    * @param p_72950_2_ Y 坐标
+    * @param p_72950_3_ Z 坐标
+    */
+public void setSpawnLocation(int p_72950_1_, int p_72950_2_, int p_72950_3_)
+
+168./**
+    * 生成实体并加载周围的区块。
+    *
+    * @param entityIn 要生成的实体
+    */
+@SideOnly(Side.CLIENT)
+public void joinEntityInSurroundings(Entity entityIn)
+
+169./**
+    * 检查玩家是否可以挖掘特定的方块。进行 "出生点安全区" 检查。
+    *
+    * @param player 玩家
+    * @param x 方块的X坐标
+    * @param y 方块的Y坐标
+    * @param z 方块的Z坐标
+    * @return 如果可以挖掘方块，则返回 true，否则返回 false
+    */
+public boolean canMineBlock(EntityPlayer player, int x, int y, int z)
+
+170./**
+    * 检查玩家是否可以挖掘特定的方块。
+    *
+    * @param par1EntityPlayer 玩家
+    * @param par2 方块的X坐标
+    * @param par3 方块的Y坐标
+    * @param par4 方块的Z坐标
+    * @return 总是返回 true
+    */
+public boolean canMineBlockBody(EntityPlayer par1EntityPlayer, int par2, int par3, int par4)
+
+171./**
+    * 向所有跟踪该实体的玩家发送 Packet 38（实体状态）数据包。
+    *
+    * @param entityIn 目标实体
+    * @param p_72960_2_ 状态字节
+    */
+public void setEntityState(Entity entityIn, byte p_72960_2_)
+
+172./**
+    * 获取此世界使用的 IChunkProvider 实例。
+    *
+    * @return 当前使用的 IChunkProvider 实例
+    */
+public IChunkProvider getChunkProvider()
+
+173./**
+    * 向 blockEventCache 添加一个方块事件。下一次 tick() 调用时，指定方块会用给定的参数调用 onBlockEvent 处理程序。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @param blockIn 触发事件的方块
+    * @param eventId 事件 ID
+    * @param eventParameter 事件参数
+    */
+public void addBlockEvent(int x, int y, int z, Block blockIn, int eventId, int eventParameter)
+
+174./**
+    * 返回当前世界的保存处理程序。
+    *
+    * @return 当前保存处理程序
+    */
+public ISaveHandler getSaveHandler()
+
+175./**
+    * 获取世界的 WorldInfo 实例。
+    *
+    * @return 当前世界的信息
+    */
+public WorldInfo getWorldInfo()
+
+176./**
+    * 获取游戏规则的实例。
+    *
+    * @return 当前世界的 GameRules 实例
+    */
+public GameRules getGameRules()
+
+177./**
+    * 更新标志，指示是否所有玩家都在睡觉。
+    */
+public void updateAllPlayersSleepingFlag()
+
+178./**
+    * 获取加权的雷电强度。
+    *
+    * @param p_72819_1_ 过渡因子
+    * @return 加权的雷电强度
+    */
+public float getWeightedThunderStrength(float p_72819_1_)
+
+179./**
+    * 设置雷电强度。
+    *
+    * @param p_147442_1_ 雷电强度
+    */
+@SideOnly(Side.CLIENT)
+public void setThunderStrength(float p_147442_1_)
+
+180./**
+    * 获取当前雷电强度。
+    *
+    * @param p_147442_1_ 雷电强度
+    */
+public float getRainStrength(float p_72867_1_)
+
+181./**
+    * 设置降雨强度。
+    *
+    * @param strength 降雨强度值
+    */
+@SideOnly(Side.CLIENT)
+public void setRainStrength(float strength)
+
+182./**
+    * 返回当前雷电强度（与降雨强度加权后的值）是否大于 0.9。
+    *
+    * @return 如果雷电强度大于 0.9，返回 true；否则返回 false
+    */
+public boolean isThundering()
+
+183./**
+    * 返回当前降雨强度是否大于 0.2。
+    *
+    * @return 如果降雨强度大于 0.2，返回 true；否则返回 false
+    */
+public boolean isRaining()
+
+184./**
+    * 检查指定坐标是否可以发生闪电。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 如果可以发生闪电，返回 true；否则返回 false
+    */
+public boolean canLightningStrikeAt(int x, int y, int z)
+
+185./**
+    * 检查指定坐标的生物群系降水值是否非常高。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 如果该坐标的湿度值非常高，返回 true；否则返回 false
+    */
+public boolean isBlockHighHumidity(int x, int y, int z)
+
+186./**
+    * 使用 MapStorage 将给定的字符串 ID 分配给给定的 MapDataBase，并删除任何现有的相同 ID 的数据。
+    *
+    * @param p_72823_1_ 数据 ID
+    * @param p_72823_2_ 要分配的 MapDataBase 实例
+    */
+public void setItemData(String p_72823_1_, WorldSavedData p_72823_2_)
+
+187./**
+    * 从磁盘加载与给定字符串 ID 对应的现有 MapDataBase，实例化给定的 Class，或者如果没有此文件则返回 null。
+    *
+    * @param p_72943_1_ 要实例化的类
+    * @param p_72943_2_ 数据 ID
+    * @return 加载的 WorldSavedData 实例，如果不存在则返回 null
+    */
+public WorldSavedData loadItemData(Class<? extends net.minecraft.world.WorldSavedData> p_72943_1_, String p_72943_2_)
+
+188./**
+    * 从 MapStorage 获取一个唯一的新数据 ID，用于给定的前缀，并将 idCounts 映射保存到 'idcounts' 文件。
+    *
+    * @param p_72841_1_ 前缀
+    * @return 唯一的新数据 ID
+    */
+public int getUniqueDataId(String p_72841_1_)
+
+189./**
+    * 播放广播声音到所有跟踪该世界的世界访问者。
+    *
+    * @param p_82739_1_ 声音 ID
+    * @param p_82739_2_ X 坐标
+    * @param p_82739_3_ Y 坐标
+    * @param p_82739_4_ Z 坐标
+    * @param p_82739_5_ 音量
+    */
+public void playBroadcastSound(int p_82739_1_, int p_82739_2_, int p_82739_3_, int p_82739_4_, int p_82739_5_)
+
+190./**
+    * 播放一个附加特效（Auxiliary Special Effect）到所有跟踪该世界的世界访问者，具体到指定坐标。
+    *
+    * @param p_72926_1_ 特效 ID
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @param p_72926_5_ 特效参数
+    */
+public void playAuxSFX(int p_72926_1_, int x, int y, int z, int p_72926_5_)
+
+191./**
+    * 播放附加特效（Auxiliary Special Effect），并将事件信息记录到崩溃报告中（如果发生异常）。
+    *
+    * @param player 事件来源玩家（可以为 null）
+    * @param p_72889_2_ 特效 ID
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @param p_72889_6_ 特效数据
+    */
+public void playAuxSFXAtEntity(EntityPlayer player, int p_72889_2_, int x, int y, int z, int p_72889_6_)
+
+192./**
+    * 返回当前世界的高度。
+    *
+    * @return 世界高度
+    */
+public int getHeight()
+
+193./**
+    * 返回当前世界的实际高度。
+    *
+    * @return 世界实际高度
+    */
+public int getActualHeight()
+
+194./**
+    * 根据输入值设置世界随机种子的状态。
+    *
+    * @param p_72843_1_ X 坐标
+    * @param p_72843_2_ Y 坐标
+    * @param p_72843_3_ Z 坐标
+    * @return 设置后的随机数生成器
+    */
+public Random setRandomSeed(int p_72843_1_, int p_72843_2_, int p_72843_3_)
+
+195./**
+    * 返回指定类型的最近结构的位置。如果没有找到，则返回 null。
+    *
+    * @param type 结构类型
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 最近结构的位置，若未找到则返回 null
+    */
+public ChunkPosition findClosestStructure(String type, int x, int y, int z)
+
+196./**
+    * 设置是否扩展了 Chunk 缓存的级别（仅客户端使用）。
+    *
+    * @return 总是返回 false
+    */
+@SideOnly(Side.CLIENT)
+public boolean extendedLevelsInChunkCache()
+
+197./**
+    * 返回用于渲染天空的地平线高度（仅客户端使用）。
+    *
+    * @return 地平线高度
+    */
+@SideOnly(Side.CLIENT)
+public double getHorizon()
+
+198./**
+    * 将世界的基本统计信息添加到给定的崩溃报告中。
+    *
+    * @param report 崩溃报告实例
+    * @return 崩溃报告类别
+    */
+public CrashReportCategory addWorldInfoToCrashReport(CrashReport report)
+
+199./**
+    * 开始（或继续）在给定坐标的块上进行破坏，并设置当前破坏值。
+    *
+    * @param p_147443_1_ 破坏块的 ID
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @param blockDamage 当前的破坏进度（0 到 10 的值）
+    */
+public void destroyBlockInWorldPartially(int p_147443_1_, int x, int y, int z, int blockDamage)
+
+200./**
+    * 返回一个包含当前日期的日历对象。
+    *
+    * @return 当前日期的日历对象
+    */
+public Calendar getCurrentDate()
+
+201./**
+    * 创建烟花效果（仅客户端使用）。
+    *
+    * @param x 烟花的 X 坐标
+    * @param y 烟花的 Y 坐标
+    * @param z 烟花的 Z 坐标
+    * @param motionX X 方向的运动速度
+    * @param motionY Y 方向的运动速度
+    * @param motionZ Z 方向的运动速度
+    * @param compund 包含烟花效果数据的 NBTTagCompound
+    */
+@SideOnly(Side.CLIENT)
+public void makeFireworks(double x, double y, double z, double motionX, double motionY, double motionZ, NBTTagCompound compund) {}
+
+202./**
+    * 获取世界的记分板实例。
+    *
+    * @return 世界的记分板
+    */
+public Scoreboard getScoreboard()
+
+203./**
+    * 检查并更新与给定块相邻的方块的状态。
+    *
+    * @param x X 坐标
+    * @param yPos Y 坐标
+    * @param z Z 坐标
+    * @param blockIn 当前方块
+    */
+public void func_147453_f(int x, int yPos, int z, Block blockIn)
+
+204./**
+    * 根据给定坐标计算光照强度。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 光照强度
+    */
+public float func_147462_b(double x, double y, double z)
+
+205./**
+    * 根据给定坐标计算光照强度。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 光照强度
+    */
+public float func_147473_B(int x, int y, int z)
+
+206./**
+    * 更新所有静态实体的状态。
+    */
+public void func_147450_X()
+
+
+=====FORGE=====
+207./**
+    * 将单个 TileEntity 添加到世界中。
+    *
+    * @param entity 要添加的 TileEntity 实例。
+    */
+public void addTileEntity(TileEntity entity)
+
+208./**
+    * 确定给定块在指定侧面是否被认为是固体的。用于放置逻辑。
+    *
+    * @param x 块的 X 坐标
+    * @param y 块的 Y 坐标
+    * @param z 块的 Z 坐标
+    * @param side 问题面的方向
+    * @return 如果该面是固体的，则返回 true
+    */
+public boolean isSideSolid(int x, int y, int z, ForgeDirection side)
+
+209./**
+    * 确定给定块在指定侧面是否被认为是固体的。用于放置逻辑。
+    *
+    * @param x 块的 X 坐标
+    * @param y 块的 Y 坐标
+    * @param z 块的 Z 坐标
+    * @param side 问题面的方向
+    * @param _default 如果块不存在时的默认返回值
+    * @return 如果该面是固体的，则返回 true
+    */
+@Override
+public boolean isSideSolid(int x, int y, int z, ForgeDirection side, boolean _default)
+
+210./**
+    * 获取此世界的持久化区块。
+    *
+    * @return 持久化区块的集合映射
+    */
+public ImmutableSetMultimap<ChunkCoordIntPair, Ticket> getPersistentChunks()
+
+211./**
+    * 重新添加此方法，因为它被删除了，提供了非常有用的辅助功能。
+    *
+    * @param x X 坐标
+    * @param y Y 坐标
+    * @param z Z 坐标
+    * @return 该块的光照不透明度
+    */
+public int getBlockLightOpacity(int x, int y, int z)
+
+212./**
+    * 返回自我分类为指定生物类型的实体数量。
+    *
+    * @param type 实体的生物类型
+    * @param forSpawnCount 是否用于生成计数
+    * @return 指定生物类型的实体数量
+    */
+public int countEntities(EnumCreatureType type, boolean forSpawnCount)
+
+
+
+
+
+
