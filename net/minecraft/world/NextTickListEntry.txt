@@ -1,0 +1,43 @@
+NextTickListEntry 类在 Minecraft 中用于调度和排序方块的下一次更新。它实现了 Comparable 接口，允许根据计划时间、优先级和唯一 ID 对其进行排序。以下是类的详细说明：
+
+类 NextTickListEntry
+NextTickListEntry 类用于表示方块在未来某个时间点需要更新的计划条目。它包括坐标、方块类型、计划时间和优先级等信息。
+
+属性
+private static long nextTickEntryID: 用于生成唯一的条目 ID。
+private final Block field_151352_g: 需要更新的方块。
+public int xCoord: 方块的 X 坐标。
+public int yCoord: 方块的 Y 坐标。
+public int zCoord: 方块的 Z 坐标。
+public long scheduledTime: 计划的更新时间。
+public int priority: 更新优先级。
+private long tickEntryID: 唯一的条目 ID。
+
+构造函数
+public NextTickListEntry(int p_i45370_1_, int p_i45370_2_, int p_i45370_3_, Block p_i45370_4_): 创建一个新的 NextTickListEntry 实例，并为其分配一个唯一的 ID。参数为 X、Y、Z 坐标和方块类型。
+
+方法
+public boolean equals(Object p_equals_1_): 判断当前实例是否与另一个 NextTickListEntry 对象相等。比较坐标和方块类型。
+public int hashCode(): 计算当前实例的哈希码。基于坐标和方块类型。
+public NextTickListEntry setScheduledTime(long p_77176_1_): 设置计划时间，并返回当前实例。
+public void setPriority(int p_82753_1_): 设置更新优先级。
+public int compareTo(NextTickListEntry p_compareTo_1_): 按照计划时间、优先级和条目 ID 对 NextTickListEntry 实例进行排序。
+public String toString(): 返回 NextTickListEntry 的字符串表示，包括方块 ID、坐标、计划时间、优先级和条目 ID。
+public Block func_151351_a(): 获取需要更新的方块。
+public int compareTo(Object p_compareTo_1_): 实现 Comparable 接口的 compareTo 方法，将对象转换为 NextTickListEntry 类型并进行比较。
+
+类说明
+调度更新: NextTickListEntry 主要用于调度方块的下一次更新，并确保这些更新按照优先级和时间顺序执行。
+排序和比较: 实现了 Comparable 接口，通过 compareTo 方法对条目进行排序，以便在更新计划中维护正确的顺序。
+唯一标识: 通过 tickEntryID 确保每个条目唯一，以便在比较和排序时使用。
+
+
+例子
+如果要创建一个 NextTickListEntry 实例，并将其添加到更新列表中，代码示例如下：
+
+java
+NextTickListEntry tickEntry = new NextTickListEntry(x, y, z, block);
+tickEntry.setScheduledTime(System.currentTimeMillis() + 1000); // 设置计划时间为当前时间加 1 秒
+tickEntry.setPriority(1); // 设置优先级
+
+这个类在方块更新调度中扮演了重要角色，确保游戏世界中的方块更新按预期顺序执行。

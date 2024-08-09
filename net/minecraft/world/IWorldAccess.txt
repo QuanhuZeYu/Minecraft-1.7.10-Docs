@@ -1,0 +1,51 @@
+IWorldAccess 接口用于处理 Minecraft 世界中的各种事件和操作，特别是在客户端和服务器之间的交互。这个接口定义了一组方法来更新方块、播放声音、处理粒子效果等。
+
+接口文档
+接口 IWorldAccess
+IWorldAccess 接口用于处理 Minecraft 世界中与方块、实体、声音和效果相关的事件。
+
+方法
+void markBlockForUpdate(int p_147586_1_, int p_147586_2_, int p_147586_3_): 
+在客户端重新渲染方块；在服务器上，将方块发送到客户端（包括 tile entity 描述包，如果适用）。参数为 (x, y, z) 坐标。
+void markBlockForRenderUpdate(int p_147588_1_, int p_147588_2_, int p_147588_3_): 
+在客户端重新渲染该方块；在服务器上不执行任何操作。用于光照更新。参数为 (x, y, z) 坐标。
+void markBlockRangeForRenderUpdate(int p_147585_1_, int p_147585_2_, int p_147585_3_, int p_147585_4_, int p_147585_5_, int p_147585_6_): 
+在客户端重新渲染指定范围内的所有方块；在服务器上不执行任何操作。参数为 (minX, minY, minZ, maxX, maxY, maxZ) 坐标范围。
+void playSound(String soundName, double x, double y, double z, float volume, float pitch): 
+播放指定的声音。参数包括声音名称、坐标 (x, y, z)、音量和音调。
+void playSoundToNearExcept(EntityPlayer p_85102_1_, String p_85102_2_, double p_85102_3_, double p_85102_5_, double p_85102_7_, float p_85102_9_, float p_85102_10_): 
+播放声音给所有接近的玩家，除了指定的玩家。参数包括声音名称、坐标 (x, y, z)、音量和音调。
+void spawnParticle(String p_72708_1_, double p_72708_2_, double p_72708_4_, double p_72708_6_, double p_72708_8_, double p_72708_10_, double p_72708_12_): 
+生成一个粒子。参数包括粒子类型、坐标 (x, y, z) 和速度 (velX, velY, velZ)。
+void onEntityCreate(Entity p_72703_1_): 
+当一个实体被创建或加载时调用。在客户端世界中，开始下载必要的纹理；在服务器世界中，将实体添加到实体跟踪器。
+void onEntityDestroy(Entity p_72709_1_): 
+当一个实体被卸载或销毁时调用。在客户端世界中，释放下载的纹理；在服务器世界中，从实体跟踪器中移除实体。
+void playRecord(String p_72702_1_, int p_72702_2_, int p_72702_3_, int p_72702_4_): 
+播放指定的音乐唱片。参数包括唱片名称和坐标 (x, y, z)。
+void broadcastSound(int p_82746_1_, int p_82746_2_, int p_82746_3_, int p_82746_4_, int p_82746_5_): 
+广播声音效果。参数包括声音 ID 和坐标 (x, y, z)，以及音量。
+void playAuxSFX(EntityPlayer p_72706_1_, int p_72706_2_, int p_72706_3_, int p_72706_4_, int p_72706_5_, int p_72706_6_): 
+播放预设的声音效果，并可能伴随辅助数据驱动的行为（如粒子效果）。参数包括玩家实体、声音 ID 和其他数据。
+void destroyBlockPartially(int p_147587_1_, int p_147587_2_, int p_147587_3_, int p_147587_4_, int p_147587_5_): 
+开始（或继续）摧毁指定 ID 的方块的部分效果。参数包括坐标 (x, y, z) 和摧毁进度。
+void onStaticEntitiesChanged(): 
+当静态实体发生变化时调用。
+
+方法用途
+markBlockForUpdate:                 用于在客户端  更新方块或在服务器上将方块的更新发送到客户端。
+markBlockForRenderUpdate:           用于在客户端  更新光照效果。
+markBlockRangeForRenderUpdate:      用于在客户端  更新指定范围内的所有方块的渲染。
+playSound:                          用于         播放声音效果，通常用于环境音效、事件提示等。
+playSoundToNearExcept:              用于         播放声音效果给所有附近的玩家，但排除指定玩家。
+spawnParticle:                      用于        生成粒子效果，增强游戏的视觉效果。
+onEntityCreate:                     用于        处理实体创建时的逻辑，例如下载纹理或添加到跟踪器。
+onEntityDestroy:                    用于        处理实体销毁时的逻辑，例如释放资源或从跟踪器中移除。
+playRecord:                         用于        播放音乐唱片。
+broadcastSound:                     用于        广播声音效果到整个服务器或客户端。
+playAuxSFX:                         用于        播放带有附加效果的声音。
+destroyBlockPartially:              用于        显示方块摧毁的进度效果。
+onStaticEntitiesChanged:            用于        处理静态实体发生变化时的逻辑。
+
+
+这个接口的实现通常用于在 Minecraft 的客户端和服务器之间处理各种游戏事件和效果。

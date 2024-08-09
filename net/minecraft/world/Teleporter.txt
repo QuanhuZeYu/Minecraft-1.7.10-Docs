@@ -1,0 +1,26 @@
+Teleporter 类文档
+Teleporter 类用于处理 Minecraft 中的传送门相关操作，包括传送玩家到现有的传送门或创建新的传送门。它在 Minecraft 的世界中扮演了一个重要的角色，允许玩家在不同维度之间移动。
+
+成员变量
+worldServerInstance: WorldServer 对象，表示当前的世界实例。
+random: Random 对象，用于生成随机数，通常用于选择传送门位置。
+destinationCoordinateCache: LongHashMap 对象，用于存储已成功放置的传送门位置，以便快速查找。
+destinationCoordinateKeys: List 对象，存储 destinationCoordinateCache 中的所有键，基于玩家初始位置的 X 和 Z 坐标。
+__OBFID: 类的唯一标识符。
+
+构造函数
+Teleporter(WorldServer worldIn): 构造函数，用于初始化 Teleporter 对象。传入的 worldIn 参数是 WorldServer 对象，用于获取世界的种子以初始化随机数生成器。
+
+方法
+placeInPortal(Entity p_77185_1_, double p_77185_2_, double p_77185_4_, double p_77185_6_, float p_77185_8_): 将实体放置在一个附近的传送门中，如果没有现有传送门，则创建一个新的传送门。对于非末地维度，这个方法会先尝试放置在现有传送门中，如果失败则创建一个新的传送门。对于末地维度（维度 ID 为 1），它会直接在玩家的位置周围创建一个新的传送门。
+
+placeInExistingPortal(Entity p_77184_1_, double p_77184_2_, double p_77184_4_, double p_77184_6_, float p_77184_8_): 将实体放置在已经存在的传送门中。它会寻找离实体最近的传送门位置并将实体传送到该位置。如果找到合适的传送门，它会调整实体的位置和方向以确保传送正确。
+
+makePortal(Entity p_85188_1_): 在实体附近创建一个新的传送门。如果当前没有合适的传送门位置，它会在实体周围寻找一个合适的位置来创建传送门结构。
+
+removeStalePortalLocations(long p_85189_1_): 定期移除过期的传送门位置缓存。这个方法会检查缓存中的每个传送门位置，如果该位置的上次更新时间距离当前世界时间过久，则将其从缓存中移除。
+
+内部类
+PortalPosition: 内部类，继承自 ChunkCoordinates。它表示一个传送门的位置以及最后更新时间。用于在缓存中存储传送门位置的相关信息。
+总结
+Teleporter 类负责处理 Minecraft 游戏中的传送门逻辑。它能够将玩家传送到现有的传送门，或在需要时创建新的传送门。它使用了缓存机制来优化传送门的位置查找，并提供了定期清理过期位置的方法。这个类的设计确保了传送门的功能在游戏世界中高效且准确地运作。

@@ -1,0 +1,19 @@
+EnumSkyBlock 是一个枚举类，用于表示 Minecraft 中的不同光源类型。它包括 Sky 和 Block 两个光源类型，每种光源类型有一个默认的光照值。以下是详细的文档和总结：
+
+类文档
+枚举 EnumSkyBlock
+EnumSkyBlock 枚举定义了游戏中的两种光源类型：Sky 和 Block，每种类型都有一个默认的光照值。
+
+成员变量
+public final int defaultLightValue: 光源类型的默认光照值。Sky 类型的光照值通常较高，而 Block 类型的光照值较低。
+构造方法
+private EnumSkyBlock(int p_i1961_3_): 构造方法，用于初始化光源类型的默认光照值。由于 EnumSkyBlock 是枚举类，构造方法是私有的。
+枚举常量
+Sky: 代表天空光源，默认光照值为 15。
+Block: 代表方块光源，默认光照值为 0。
+类总结
+EnumSkyBlock 枚举类用于定义 Minecraft 中的光源类型及其默认光照值。它包含了以下主要功能：
+
+光源类型：Sky 和 Block 两种光源类型。
+默认光照值：每种光源类型有一个默认的光照值，Sky 通常为 15（最亮），Block 为 0（无光）。
+这个枚举类在游戏中用于处理不同类型的光源，并影响光照计算和渲染。

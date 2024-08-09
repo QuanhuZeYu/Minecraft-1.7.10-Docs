@@ -1,0 +1,41 @@
+GameRules 类用于处理 Minecraft 中的游戏规则。这些规则可以定义游戏的行为和设置，并且可以在游戏中进行读取和修改。以下是对该类的详细文档和总结：
+
+类文档
+类 GameRules
+GameRules 类管理游戏规则的定义、获取、设置以及持久化。
+
+成员变量
+private TreeMap theGameRules: 存储所有游戏规则及其值的映射表。
+
+构造方法
+public GameRules(): 初始化 GameRules 实例，并定义了一些默认的游戏规则及其初始值。
+
+方法
+public void addGameRule(String p_82769_1_, String p_82769_2_): 定义一个游戏规则及其默认值，并将其添加到 theGameRules 中。
+public void setOrCreateGameRule(String p_82764_1_, String p_82764_2_): 设置或创建游戏规则的值。如果规则已存在，则更新其值；如果规则不存在，则添加新规则。
+public String getGameRuleStringValue(String p_82767_1_): 获取指定游戏规则的字符串值。如果规则不存在，返回空字符串。
+public boolean getGameRuleBooleanValue(String p_82766_1_): 获取指定游戏规则的布尔值。如果规则不存在，返回 false。
+public NBTTagCompound writeGameRulesToNBT(): 将当前的游戏规则写入到 NBT（Named Binary Tag）数据中。
+public void readGameRulesFromNBT(NBTTagCompound p_82768_1_): 从 NBT 数据中读取游戏规则并设置到 GameRules 中。
+public String[] getRules(): 返回所有定义的游戏规则的名称。
+public boolean hasRule(String p_82765_1_): 检查是否定义了指定的游戏规则。
+
+内部静态类 Value
+Value 类表示游戏规则的值，支持不同的数据类型（字符串、布尔值、整数和双精度浮点数）。
+
+    成员变量
+    private String valueString: 游戏规则的字符串值。
+    private boolean valueBoolean: 游戏规则的布尔值。
+    private int valueInteger: 游戏规则的整数值。
+    private double valueDouble: 游戏规则的双精度浮点数值。
+
+    构造方法
+    public Value(String p_i1949_1_): 根据字符串初始化 Value 实例，并尝试解析不同的数据类型。
+
+    方法
+    public void setValue(String p_82757_1_): 设置游戏规则的值，并尝试将其解析为布尔值、整数值或双精度浮点数值。
+    public String getGameRuleStringValue(): 返回游戏规则的字符串值。
+    public boolean getGameRuleBooleanValue(): 返回游戏规则的布尔值。
+
+类总结
+GameRules 类管理 Minecraft 游戏中的各种游戏规则，并提供接口来读取、设置和持久化这些规则。它支持规则的默认值定义、值的修改、从 NBT 数据读写等功能，使得游戏规则可以在运行时动态调整，并且能够保存和加载游戏状态。通过内部的 Value 类，游戏规则的值可以被解析为不同的数据类型，并提供相应的访问方法。

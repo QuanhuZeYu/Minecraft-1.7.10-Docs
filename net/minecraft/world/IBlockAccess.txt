@@ -1,0 +1,30 @@
+IBlockAccess 是一个接口，用于访问 Minecraft 世界中的方块和相关数据。这个接口定义了一组方法，用于获取方块信息、光照、元数据等。
+
+接口文档
+接口 IBlockAccess
+IBlockAccess 接口用于提供对 Minecraft 世界中方块和相关数据的访问。
+
+方法
+Block getBlock(int p_147439_1_, int p_147439_2_, int p_147439_3_):                                  获取指定坐标 (x, y, z) 处的方块。
+TileEntity getTileEntity(int x, int y, int z):                                                      获取指定坐标 (x, y, z) 处的 tile entity（方块实体）。
+@SideOnly(Side.CLIENT) int getLightBrightnessForSkyBlocks(int p_72802_1_, int p_72802_2_, int p_72802_3_, int p_72802_4_): 获取指定坐标 (x, y, z) 处的天空光亮度（仅客户端）。
+int getBlockMetadata(int p_72805_1_, int p_72805_2_, int p_72805_3_):                               获取指定坐标 (x, y, z) 处的方块元数据。
+int isBlockProvidingPowerTo(int x, int y, int z, int directionIn):                                  检查指定坐标 (x, y, z) 处的方块在指定方向上是否提供红石电力。
+boolean isAirBlock(int x, int y, int z):                                                            检查指定坐标 (x, y, z) 处的方块是否为空气。
+@SideOnly(Side.CLIENT) BiomeGenBase getBiomeGenForCoords(int x, int z):                             获取指定坐标 (x, z) 处的生物群系（仅客户端）。
+@SideOnly(Side.CLIENT) int getHeight():                                                             获取当前世界的高度（仅客户端）。
+@SideOnly(Side.CLIENT) boolean extendedLevelsInChunkCache():                                        检查是否在区块缓存中扩展了层级（仅客户端）。
+boolean isSideSolid(int x, int y, int z, ForgeDirection side, boolean _default):                    检查指定坐标 (x, y, z) 处的方块在指定方向上是否固体，使用默认返回值（Forge）。
+
+方法用途
+getBlock:                                                                       用于获取指定位置的方块对象，这在处理方块逻辑时非常重要。
+getTileEntity:                                                                  用于获取方块实体，例如箱子、工作台等，它们存储了额外的数据。
+getLightBrightnessForSkyBlocks:                                                 用于客户端计算光照，影响光照效果的渲染。
+getBlockMetadata:                                                               获取方块的元数据，可以用于确定方块的状态或变体。
+isBlockProvidingPowerTo:                                                        用于确定一个方块是否在特定方向上提供红石电力，这在红石电路中很有用。
+isAirBlock:                                                                     用于检查方块是否为空气，这对于判断空间是否可被放置物体很重要。
+getBiomeGenForCoords:                                                           获取生物群系信息，用于处理与生物群系相关的逻辑。
+getHeight:                                                                      获取世界的高度，通常用于客户端渲染。
+extendedLevelsInChunkCache:                                                     判断区块缓存是否扩展了层级，可能影响世界数据的加载和渲染。
+isSideSolid:                                                                    检查方块在特定方向上的固体状态，用于处理方块的碰撞和渲染。
+这个接口的实现类通常用于在 Minecraft 的世界中进行各种操作，比如方块渲染、物品放置、红石电路等。

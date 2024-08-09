@@ -1,0 +1,27 @@
+ChunkPosition 类用于表示 Minecraft 中的三维空间坐标。该类封装了 X、Y 和 Z 坐标，并提供了用于比较和哈希的功能。以下是该类的详细文档和总结：
+
+类文档
+类 ChunkPosition
+ChunkPosition 类表示三维空间中的一个位置，由 X、Y 和 Z 坐标组成。
+
+成员变量
+public final int chunkPosX: 位置的 X 坐标。
+public final int chunkPosY: 位置的 Y 坐标。
+public final int chunkPosZ: 位置的 Z 坐标。
+构造函数
+public ChunkPosition(int p_i45363_1_, int p_i45363_2_, int p_i45363_3_): 构造函数，使用指定的 X、Y 和 Z 坐标初始化一个 ChunkPosition 对象。
+public ChunkPosition(Vec3 p_i45364_1_): 构造函数，使用一个 Vec3 对象来初始化 ChunkPosition 对象。Vec3 的坐标会被四舍五入到最接近的整数值。
+方法
+public boolean equals(Object p_equals_1_): 判断两个 ChunkPosition 对象是否相等。两个对象被认为相等当且仅当它们的 X、Y 和 Z 坐标都相等。
+public int hashCode(): 计算并返回该对象的哈希码。哈希码是通过将 X、Y 和 Z 坐标进行线性变换得到的。
+
+
+类总结
+ChunkPosition 类用于表示 Minecraft 游戏世界中的三维位置。它封装了 X、Y 和 Z 坐标，并提供了基本的功能来比较不同位置是否相等，以及生成对象的哈希码。这些功能在 Minecraft 的世界管理和数据处理方面非常重要。
+
+关键功能总结：
+
+三维坐标表示：封装了空间中的 X、Y 和 Z 坐标。
+相等性比较：提供了基于坐标的相等性检查。
+哈希码计算：计算该位置的哈希码，用于数据结构中的唯一标识。
+这个类对于处理 Minecraft 中的空间位置非常有用，尤其是在涉及到区块、实体和世界管理时。

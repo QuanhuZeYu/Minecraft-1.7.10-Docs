@@ -1,0 +1,30 @@
+ChunkCoordIntPair 类表示 Minecraft 中的一个区块坐标对（Chunk Coordinate Pair）。这个类用于标识和操作特定的区块坐标，包括计算哈希值、比较相等性等。以下是 ChunkCoordIntPair 类的详细文档和总结：
+
+类文档
+类 ChunkCoordIntPair
+ChunkCoordIntPair 类用于表示 Minecraft 世界中的一个区块坐标对，由 X 和 Z 坐标组成。它提供了计算和操作这些坐标的方法。
+
+成员变量
+public final int chunkXPos: 区块的 X 坐标。
+public final int chunkZPos: 区块的 Z 坐标。
+构造函数
+public ChunkCoordIntPair(int p_i1947_1_, int p_i1947_2_): 构造函数，初始化一个 ChunkCoordIntPair 对象，设置 X 和 Z 坐标。
+方法
+public static long chunkXZ2Int(int p_77272_0_, int p_77272_1_): 将区块坐标对转换为一个整数值，用于哈希或存储。X 坐标占低 32 位，Z 坐标占高 32 位。
+public int hashCode(): 计算并返回该对象的哈希码。哈希计算基于 X 和 Z 坐标的线性变换，确保不同的区块坐标对具有不同的哈希码。
+public boolean equals(Object p_equals_1_): 判断两个 ChunkCoordIntPair 对象是否相等。两个对象被认为相等当且仅当它们的 X 和 Z 坐标都相等。
+public int getCenterXPos(): 获取区块中心的 X 坐标。通过将 X 坐标左移 4 位并加 8 得到。
+public int getCenterZPosition(): 获取区块中心的 Z 坐标。通过将 Z 坐标左移 4 位并加 8 得到。
+public ChunkPosition func_151349_a(int p_151349_1_): 创建并返回一个 ChunkPosition 对象，其 X 和 Z 坐标为区块中心坐标，Y 坐标为指定的值。
+public String toString(): 返回该对象的字符串表示，格式为 "[chunkXPos, chunkZPos]"。
+
+
+类总结
+ChunkCoordIntPair 类用于表示和操作 Minecraft 中的区块坐标。它封装了 X 和 Z 坐标，并提供了多种方法来处理这些坐标，例如计算哈希值、比较相等性、获取区块中心位置等。这个类在 Minecraft 中用于各种需要区块坐标的地方，例如缓存区块数据、查找区块、区块管理等。
+
+关键功能总结：
+
+区块坐标表示：封装了区块的 X 和 Z 坐标。
+哈希和相等性检查：提供了基于坐标的哈希码计算和相等性比较功能。
+区块中心位置：计算区块中心的坐标。
+字符串表示：以字符串格式表示区块坐标对。

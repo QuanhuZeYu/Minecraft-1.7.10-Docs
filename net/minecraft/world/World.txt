@@ -1,0 +1,91 @@
+类属性文档
+以下是 World 类属性的详细文档说明：
+
+常量
+MAX_ENTITY_RADIUS (public static double): 用于 getEntitiesWithinAABB 函数，以扩展搜索区域的半径。建议根据实体的半径调整该值，以确保实体能够正确地被查找。
+实例变量
+perWorldStorage (public final MapStorage): 每个世界的存储数据。
+
+scheduledUpdatesAreImmediate (public boolean): 如果为 true，通过 scheduleBlockUpdate 调度的更新将立即执行。
+
+loadedEntityList (public List<net.minecraft.entity.Entity>): 当前加载的所有实体的列表。
+
+unloadedEntityList (protected List<net.minecraft.entity.Entity>): 已卸载的实体列表。
+
+loadedTileEntityList (public List<net.minecraft.tileentity.TileEntity>): 当前加载的所有瓷砖实体（Tile Entity）的列表。
+
+addedTileEntityList (private List): 已添加的瓷砖实体列表。
+
+field_147483_b (private List): 用于存储某些内部数据的列表。
+
+playerEntities (public List<net.minecraft.entity.player.EntityPlayer>): 当前世界中的所有玩家实体的列表。
+
+weatherEffects (public List<net.minecraft.entity.Entity>): 所有天气效果实体的列表。
+
+cloudColour (private long): 云层颜色的值。
+
+skylightSubtracted (public int): 从全日光中减去的光量值。
+
+updateLCG (protected int): 用于块更新的线性同余生成器的当前种子。用于生成高度平面系列的值。
+
+DIST_HASH_MAGIC (protected final int): 用于在区块内生成快速随机数的魔术数。
+
+prevRainingStrength (public float): 前一帧的降雨强度。
+
+rainingStrength (public float): 当前的降雨强度。
+
+prevThunderingStrength (public float): 前一帧的雷电强度。
+
+thunderingStrength (public float): 当前的雷电强度。
+
+lastLightningBolt (public int): 当生成闪电时设置为 2。若大于 0，则在 updateWeather() 中递减。该值似乎未被使用。
+
+difficultySetting (public EnumDifficulty): 世界的难度设置，范围从 0 到 3。
+
+rand (public Random): 用于世界的随机数生成器。
+
+provider (public final WorldProvider): World 使用的 WorldProvider 实例。
+
+worldAccesses (protected List<net.minecraft.world.IWorldAccess>): 处理世界访问的列表。
+
+chunkProvider (protected IChunkProvider): 处理区块操作和缓存的对象。
+
+saveHandler (protected final ISaveHandler): 保存处理程序。
+
+worldInfo (protected final WorldInfo): 保存有关世界的信息（如磁盘上的大小、时间、出生点、种子等）。
+
+findingSpawnPoint (public boolean): 当尝试查找出生点时设置为 true。
+
+mapStorage (public MapStorage): 世界的映射存储。
+
+villageCollectionObj (public VillageCollection): 村庄集合对象。
+
+villageSiegeObj (protected final VillageSiege): 村庄围攻对象。
+
+theProfiler (public final Profiler): 用于性能分析的 Profiler 对象。
+
+theCalendar (private final Calendar): 当前的 Calendar 实例。
+
+worldScoreboard (protected Scoreboard): 世界的计分板。
+
+isRemote (public boolean): 指示这是客户端世界 (true) 还是服务器世界 (false)。
+
+activeChunkSet (protected Set<net.minecraft.world.ChunkCoordIntPair>): 需要更新的区块位置集合。
+
+ambientTickCountdown (private int): 到下一个随机环境音效播放的计数器。
+
+spawnHostileMobs (protected boolean): 指示是否生成敌对生物的标志。
+
+spawnPeacefulMobs (protected boolean): 指示是否生成和平生物的标志。
+
+collidingBoundingBoxes (private ArrayList): 碰撞的边界框的临时列表。
+
+field_147481_N (private boolean): 内部标志，具体用途不明。
+
+lightUpdateBlockList (int[]): 用于更新光照等级的临时列表。包含光源的最大影响范围（32x32x32）的块和光值。
+
+restoringBlockSnapshots (public boolean): 如果为 true，则正在恢复块快照。
+
+captureBlockSnapshots (public boolean): 如果为 true，则捕获块快照。
+
+capturedBlockSnapshots (public ArrayList<net.minecraftforge.common.util.BlockSnapshot>): 捕获的块快照列表。

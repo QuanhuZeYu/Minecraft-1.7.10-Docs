@@ -1,0 +1,28 @@
+EnumDifficulty 是一个枚举类，用于表示 Minecraft 游戏中的不同难度级别。它包括 PEACEFUL（和平）、EASY（简单）、NORMAL（普通）和 HARD（困难）四个难度。这个类不仅定义了每种难度的 ID 和资源键，还提供了方法来获取这些信息。以下是详细的文档和总结：
+
+类文档
+枚举 EnumDifficulty
+EnumDifficulty 枚举定义了 Minecraft 中的所有难度级别，每个难度级别都有一个唯一的 ID 和对应的资源键。
+
+成员变量
+private static final EnumDifficulty[] difficultyEnums: 存储所有 EnumDifficulty 实例的数组。用于通过 ID 快速查找对应的难度级别。
+private final int difficultyId: 难度级别的唯一整数 ID。
+private final String difficultyResourceKey: 用于国际化的资源键，用于获取本地化的难度名称。
+构造方法
+private EnumDifficulty(int p_i45312_3_, String p_i45312_4_): 构造方法，用于初始化每个难度级别的 ID 和资源键。由于 EnumDifficulty 是枚举类，构造方法是私有的。
+方法
+public int getDifficultyId(): 返回当前难度级别的 ID。
+
+public static EnumDifficulty getDifficultyEnum(int p_151523_0_): 根据传入的 ID 返回对应的 EnumDifficulty 实例。若 ID 超出范围，会根据取模运算来处理。
+
+public String getDifficultyResourceKey(): 返回当前难度级别的资源键，用于获取本地化的难度名称。
+
+静态块
+static: 初始化 difficultyEnums 数组，将每个 EnumDifficulty 实例映射到其对应的 ID 上，以便快速查找。
+类总结
+EnumDifficulty 枚举类用于表示游戏中的四种难度级别，并提供了与难度级别相关的 ID 和资源键。它包含了以下几个主要功能：
+
+难度 ID：每个难度级别都有一个唯一的整数 ID。
+资源键：用于本地化显示难度名称的键。
+快速查找：通过静态数组 difficultyEnums 和 ID 可以快速获取对应的难度级别。
+这个枚举类在游戏中用于处理玩家的游戏难度设置，影响游戏的挑战性和难度。

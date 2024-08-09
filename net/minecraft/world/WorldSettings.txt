@@ -1,0 +1,50 @@
+类文档
+类 WorldSettings
+WorldSettings 类负责定义和管理 Minecraft 世界的生成设置，包括世界种子、游戏类型、地图特性等。
+
+成员变量
+private final long seed: 世界的种子值，用于生成世界的随机性。
+private final WorldSettings.GameType theGameType: 游戏模式类型（生存、创造、冒险等）。
+private final boolean mapFeaturesEnabled: 是否启用地图特性（如要塞、村庄等）。
+private final boolean hardcoreEnabled: 是否启用困难模式。
+private final WorldType terrainType: 世界的地形类型（如默认、超平坦等）。
+private boolean commandsAllowed: 是否允许使用命令（作弊）。
+private boolean bonusChestEnabled: 是否启用奖励箱（Bonus Chest）。
+private String field_82751_h: 额外字段，具体用途不明。
+构造函数
+public WorldSettings(long p_i1957_1_, WorldSettings.GameType p_i1957_3_, boolean p_i1957_4_, boolean p_i1957_5_, WorldType p_i1957_6_): 初始化 WorldSettings 对象，设置种子、游戏模式、地图特性、困难模式和地形类型。
+public WorldSettings(WorldInfo p_i1958_1_): 从 WorldInfo 对象创建 WorldSettings 实例。
+方法
+public WorldSettings enableBonusChest(): 启用奖励箱。
+public WorldSettings func_82750_a(String p_82750_1_): 设置额外字段的值。
+@SideOnly(Side.CLIENT) public WorldSettings enableCommands(): 启用命令（作弊）。
+public boolean isBonusChestEnabled(): 检查奖励箱是否启用。
+public long getSeed(): 获取世界种子值。
+public WorldSettings.GameType getGameType(): 获取游戏模式类型。
+public boolean getHardcoreEnabled(): 检查是否启用困难模式。
+public boolean isMapFeaturesEnabled(): 检查地图特性是否启用。
+public WorldType getTerrainType(): 获取地形类型。
+public boolean areCommandsAllowed(): 检查是否允许使用命令（作弊）。
+public static WorldSettings.GameType getGameTypeById(int p_77161_0_): 根据 ID 获取游戏模式类型。
+public String func_82749_j(): 获取额外字段的值。
+
+
+枚举 GameType
+表示游戏模式类型，包括：
+
+NOT_SET: 未设置模式。
+SURVIVAL: 生存模式。
+CREATIVE: 创造模式。
+ADVENTURE: 冒险模式。
+方法
+public int getID(): 获取游戏模式的 ID。
+public String getName(): 获取游戏模式的名称。
+public void configurePlayerCapabilities(PlayerCapabilities p_77147_1_): 根据游戏模式配置玩家能力。
+public boolean isAdventure(): 判断是否是冒险模式。
+public boolean isCreative(): 判断是否是创造模式。
+@SideOnly(Side.CLIENT) public boolean isSurvivalOrAdventure(): 判断是否是生存或冒险模式。
+public static WorldSettings.GameType getByID(int p_77146_0_): 根据 ID 获取游戏模式。
+@SideOnly(Side.CLIENT) public static WorldSettings.GameType getByName(String p_77142_0_): 根据名称获取游戏模式。
+
+类总结
+WorldSettings 类用于定义 Minecraft 世界的生成配置，允许玩家和开发者自定义世界生成的各种参数，如种子、游戏模式、地图特性、困难模式以及地形类型。通过该类，玩家可以创建适合自己需求的游戏世界。例如，可以选择启用奖励箱、允许使用作弊命令等。枚举 GameType 则定义了游戏模式的不同类型及其相关功能，帮助控制游戏中的玩家能力和行为。
