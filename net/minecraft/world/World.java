@@ -3965,15 +3965,6 @@ public abstract class World implements IBlockAccess
             return false;
         }
     }
-    /**
-     * 更新指定坐标的光照值。
-     *
-     * @param p_147463_1_ 光照类型（天空光或方块光）
-     * @param p_147463_2_ 方块的 X 坐标
-     * @param p_147463_3_ 方块的 Y 坐标
-     * @param p_147463_4_ 方块的 Z 坐标
-     * @return 如果光照值被更新，则返回 true，否则返回 false
-     */
     public boolean func_147451_t(int x, int y, int z)
     {
         boolean flag = false;
@@ -4999,17 +4990,21 @@ public abstract class World implements IBlockAccess
      * 更新标志，指示是否所有玩家都在睡觉。
      */
     public void updateAllPlayersSleepingFlag() {}
-
+    /**
+     * 获取加权的雷电强度。
+     *
+     * @param p_72819_1_ 过渡因子
+     * @return 加权的雷电强度
+     */
     public float getWeightedThunderStrength(float p_72819_1_)
     {
         return (this.prevThunderingStrength + (this.thunderingStrength - this.prevThunderingStrength) * p_72819_1_) * this.getRainStrength(p_72819_1_);
     }
 
     /**
-     * 获取加权的雷电强度。
+     * 设置雷电强度。
      *
-     * @param p_72819_1_ 过渡因子
-     * @return 加权的雷电强度
+     * @param p_147442_1_ 雷电强度
      */
     @SideOnly(Side.CLIENT)
     public void setThunderStrength(float p_147442_1_)
@@ -5018,11 +5013,7 @@ public abstract class World implements IBlockAccess
         this.thunderingStrength = p_147442_1_;
     }
 
-    /**
-     * 设置雷电强度。
-     *
-     * @param p_147442_1_ 雷电强度
-     */
+
     public float getRainStrength(float p_72867_1_)
     {
         return this.prevRainingStrength + (this.rainingStrength - this.prevRainingStrength) * p_72867_1_;
@@ -5349,7 +5340,7 @@ public abstract class World implements IBlockAccess
      * @param motionX X 方向的运动速度
      * @param motionY Y 方向的运动速度
      * @param motionZ Z 方向的运动速度
-     * @param compound 包含烟花效果数据的 NBTTagCompound
+     * @param compund 包含烟花效果数据的 NBTTagCompound
      */
     @SideOnly(Side.CLIENT)
     public void makeFireworks(double x, double y, double z, double motionX, double motionY, double motionZ, NBTTagCompound compund) {}
