@@ -1,0 +1,60 @@
+WorldManager 类实现了 IWorldAccess 接口，主要用于处理和世界相关的各种操作，尤其是在服务器端。以下是该类的详细文档：
+
+WorldManager 类
+
+成员变量
+private MinecraftServer mcServer
+参考的 MinecraftServer 对象，用于与服务器交互。
+
+private WorldServer theWorldServer
+参考的 WorldServer 对象，代表当前的游戏世界。
+
+private static final String __OBFID
+用于标识类的唯一字符串，通常用于版本控制或调试。
+
+构造函数
+public WorldManager(MinecraftServer p_i1517_1_, WorldServer p_i1517_2_)
+构造函数，初始化 mcServer 和 theWorldServer。
+
+方法
+public void spawnParticle(String p_72708_1_, double p_72708_2_, double p_72708_4_, double p_72708_6_, double p_72708_8_, double p_72708_10_, double p_72708_12_)
+在服务器上触发粒子效果。此方法为空实现，仅在客户端实现粒子效果。
+
+public void onEntityCreate(Entity p_72703_1_)
+当一个实体被创建时调用。在服务器上，将实体添加到实体跟踪器中，以便其他玩家可以看到。
+
+public void onEntityDestroy(Entity p_72709_1_)
+当一个实体被销毁时调用。在服务器上，从所有跟踪玩家中移除该实体。
+
+public void playSound(String soundName, double x, double y, double z, float volume, float pitch)
+在指定坐标播放声音，并通知所有玩家。声音的范围由体积决定。
+
+public void playSoundToNearExcept(EntityPlayer p_85102_1_, String p_85102_2_, double p_85102_3_, double p_85102_5_, double p_85102_7_, float p_85102_9_, float p_85102_10_)
+播放声音，除了指定的玩家。声音的范围由体积决定。
+
+public void markBlockRangeForRenderUpdate(int p_147585_1_, int p_147585_2_, int p_147585_3_, int p_147585_4_, int p_147585_5_, int p_147585_6_)
+在客户端上重新渲染指定范围的块。此方法在服务器上没有实现。
+
+public void markBlockForUpdate(int p_147586_1_, int p_147586_2_, int p_147586_3_)
+在客户端上更新指定坐标的块。服务器将块发送到客户端，以便客户端重新渲染。
+
+public void markBlockForRenderUpdate(int p_147588_1_, int p_147588_2_, int p_147588_3_)
+在客户端上重新渲染指定坐标的块。此方法在服务器上没有实现。
+
+public void playRecord(String p_72702_1_, int p_72702_2_, int p_72702_3_, int p_72702_4_)
+播放指定的音乐记录。此方法在服务器上没有实现。
+
+public void playAuxSFX(EntityPlayer p_72706_1_, int p_72706_2_, int p_72706_3_, int p_72706_4_, int p_72706_5_, int p_72706_6_)
+播放附加效果，并通知所有玩家，除了指定的玩家。
+
+public void broadcastSound(int p_82746_1_, int p_82746_2_, int p_82746_3_, int p_82746_4_, int p_82746_5_)
+广播指定的声音效果到所有玩家。
+
+public void destroyBlockPartially(int p_147587_1_, int p_147587_2_, int p_147587_3_, int p_147587_4_, int p_147587_5_)
+在所有玩家客户端上部分破坏指定的块，除当前玩家外。
+
+public void onStaticEntitiesChanged()
+当静态实体发生变化时调用。此方法为空实现。
+
+总结
+WorldManager 类处理了在 Minecraft 服务器上的各种世界相关操作。它实现了 IWorldAccess 接口，并提供了对粒子效果、声音、块更新和实体跟踪的支持。此类主要用于将服务器上的世界变化广播给客户端，确保客户端上的世界状态与服务器保持一致。
