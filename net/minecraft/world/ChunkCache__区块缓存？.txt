@@ -10,19 +10,20 @@ private boolean isEmpty: 如果缓存的区块区域为空，则为 true。
 private World worldObj: 对应的世界对象。
 构造函数
 public ChunkCache(World p_i1964_1_, int p_i1964_2_, int p_i1964_3_, int p_i1964_4_, int p_i1964_5_, int p_i1964_6_, int p_i1964_7_, int p_i1964_8_): 构造函数，初始化 ChunkCache 对象并填充指定区域内的区块数据。通过给定的坐标范围（以方块为单位）计算需要缓存的区块区域，并从 World 对象中获取这些区块。
+
 方法
-@SideOnly(Side.CLIENT) public boolean extendedLevelsInChunkCache(): 返回缓存区块是否为空。
-public Block getBlock(int p_147439_1_, int p_147439_2_, int p_147439_3_): 获取指定坐标的方块。
-public TileEntity getTileEntity(int x, int y, int z): 获取指定坐标的 TileEntity（方块实体）。
-@SideOnly(Side.CLIENT) public int getLightBrightnessForSkyBlocks(int p_72802_1_, int p_72802_2_, int p_72802_3_, int p_72802_4_): 获取指定坐标的光照亮度。
-public int getBlockMetadata(int p_72805_1_, int p_72805_2_, int p_72805_3_): 获取指定坐标的方块元数据。
-public int isBlockProvidingPowerTo(int x, int y, int z, int directionIn): 判断指定坐标的方块是否向特定方向提供电力。
-@SideOnly(Side.CLIENT) public BiomeGenBase getBiomeGenForCoords(int x, int z): 获取指定坐标的生物群系。
-public boolean isAirBlock(int x, int y, int z): 判断指定坐标的方块是否为空气方块。
-@SideOnly(Side.CLIENT) public int getSkyBlockTypeBrightness(EnumSkyBlock p_72810_1_, int p_72810_2_, int p_72810_3_, int p_72810_4_): 获取指定坐标的天空光照亮度。
-@SideOnly(Side.CLIENT) public int getSpecialBlockBrightness(EnumSkyBlock p_72812_1_, int p_72812_2_, int p_72812_3_, int p_72812_4_): 获取特殊方块的光照亮度（用于楼梯等）。
-@SideOnly(Side.CLIENT) public int getHeight(): 获取世界的高度（在 Minecraft 中为 256）。
-@Override public boolean isSideSolid(int x, int y, int z, ForgeDirection side, boolean _default): 判断指定坐标的方块在特定方向上的侧面是否是固体方块。
+extendedLevelsInChunkCache():                                                                       返回缓存区块是否为空。
+getBlock(int p_147439_1_, int p_147439_2_, int p_147439_3_):                                        获取指定坐标的方块。
+getTileEntity(int x, int y, int z):                                                                 获取指定坐标的 TileEntity（方块实体）。
+getLightBrightnessForSkyBlocks(int p_72802_1_, int p_72802_2_, int p_72802_3_, int p_72802_4_):     获取指定坐标的光照亮度。
+getBlockMetadata(int p_72805_1_, int p_72805_2_, int p_72805_3_):                                   获取指定坐标的方块元数据。
+isBlockProvidingPowerTo(int x, int y, int z, int directionIn):                                      判断指定坐标的方块是否向特定方向提供红石信号。
+BiomeGenBase getBiomeGenForCoords(int x, int z):                                                    获取指定坐标的生物群系。
+isAirBlock(int x, int y, int z):                                                                    判断指定坐标的方块是否为空气方块。
+getSkyBlockTypeBrightness(EnumSkyBlock p_72810_1_, int p_72810_2_, int p_72810_3_, int p_72810_4_): 获取指定坐标的天空光照亮度。
+getSpecialBlockBrightness(EnumSkyBlock p_72812_1_, int p_72812_2_, int p_72812_3_, int p_72812_4_): 获取特殊方块的光照亮度（用于楼梯等）。
+getHeight():                                                                                        获取世界的高度（在 Minecraft 中为 256）。
+isSideSolid(int x, int y, int z, ForgeDirection side, boolean _default):                            判断指定坐标的方块在特定方向上的侧面是否是固体方块。
 
 
 类总结
